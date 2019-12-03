@@ -1,6 +1,6 @@
 body {
   font-family: "Open Sans", sans-serif;
-  padding: 20px 60px;
+  font-size: 1.6rem;
 }
 
 a {
@@ -12,6 +12,14 @@ a:hover {
   color: var(--color-primary-light);
 }
 
-* {
-  box-sizing: border-box;
+input:focus,
+input:active,
+select:focus,
+select:active {
+  outline: none;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: 20rem 1fr 30rem;
 }
