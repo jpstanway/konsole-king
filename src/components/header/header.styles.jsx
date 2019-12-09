@@ -1,33 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device, size } from "../../scripts/media";
 
 export const HeaderContainer = styled.div`
   border-bottom: 1px solid var(--color-black);
   font-size: 1.4rem;
-  width: 100%;
-`;
-
-export const Loginbar = styled.div`
-  background-color: var(--color-grey-light);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
-  height: 4rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: flex-end;
-
-  ul {
-    list-style-type: none;
-
-    li {
-      display: inline-block;
-
-      &:not(:first-child) {
-        border-left: 1px solid black;
-        margin-left: 1rem;
-        padding-left: 1rem;
-      }
-    }
-  }
 `;
 
 export const Navbar = styled.div`
@@ -36,13 +13,26 @@ export const Navbar = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 2rem 5rem;
+  width: 100%;
+  margin: auto;
+  max-width: ${size.laptop};
+
+  @media ${device.laptop} {
+    height: auto;
+    flex-direction: column;
+    padding: 4rem 5rem;
+  }
+
+  @media ${device.mobileL} {
+    padding: 4rem 0;
+  }
 `;
 
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 10rem;
+  min-width: 11rem;
 `;
 
 export const Logo = styled(Link)`
@@ -51,14 +41,24 @@ export const Logo = styled(Link)`
 `;
 
 export const ContactAndSearchContainer = styled.div`
-  flex-grow: 1;
+  flex: 1 0;
   padding: 2rem;
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;
 
 export const ContactList = styled.ul`
   list-style-type: none;
   padding: 0;
   display: flex;
+
+  @media ${device.laptop} {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const ContactItem = styled.li`
@@ -80,4 +80,8 @@ export const PurchaseContainer = styled.div`
   display: flex;
   align-items: flex-end;
   height: 8.5rem;
+
+  @media ${device.laptop} {
+    height: auto;
+  }
 `;

@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   HeaderContainer,
-  Loginbar,
   Navbar,
   LogoContainer,
   Logo,
@@ -18,16 +17,6 @@ import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 const Header = () => (
   <HeaderContainer>
-    <Loginbar>
-      <ul>
-        <li>
-          <a href="#">Register</a>
-        </li>
-        <li>
-          <a href="#">Login</a>
-        </li>
-      </ul>
-    </Loginbar>
     <Navbar>
       <LogoContainer>
         <Logo to="/">Konsole King</Logo>

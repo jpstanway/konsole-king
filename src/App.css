@@ -21,5 +21,10 @@ select:active {
 
 .App {
   display: grid;
-  grid-template-rows: 20rem 1fr 30rem;
+  grid-template-rows: 4rem minmax(16rem, auto) 1fr 30rem;
+}
+
+.mobile-menu-toggle {
+  display: block !important;
+  top: 4rem !important;
 }
