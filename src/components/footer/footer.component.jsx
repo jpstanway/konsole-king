@@ -5,6 +5,12 @@ import {
   FooterInnerContainer,
   SocialMenu,
   SocialIcon,
+  FooterSignUp,
+  FooterInputContainer,
+  FooterInput,
+  FooterBtn,
+  FooterInfo,
+  FooterLinks,
   FooterMenu
 } from "./footer.styles";
 
@@ -13,7 +19,11 @@ import Logo from "../logo/logo.component";
 const Footer = () => (
   <FooterContainer>
     <FooterInnerContainer>
-      <div>
+      <FooterInputContainer>
+        <FooterInput placeholder="Subscribe to our newsletter" />
+        <FooterBtn>Subscribe</FooterBtn>
+      </FooterInputContainer>
+      <FooterInfo>
         <Logo />
         <SocialMenu>
           <li>
@@ -42,9 +52,9 @@ const Footer = () => (
             </SocialIcon>
           </li>
         </SocialMenu>
-      </div>
-      <FooterMenu>
-        <table>
+      </FooterInfo>
+      <FooterLinks>
+        <FooterMenu>
           <thead>
             <tr>
               <th>Find It Fast</th>
@@ -59,33 +69,63 @@ const Footer = () => (
               <td>&nbsp;</td>
             </tr>
             <tr>
-              <td>Consoles</td>
-              <td>Find A Store</td>
-              <td>My Account</td>
+              <td>
+                <a href="#">Consoles</a>
+              </td>
+              <td>
+                <a href="#">Find A Store</a>
+              </td>
+              <td>
+                <a href="#">My Account</a>
+              </td>
             </tr>
             <tr>
-              <td>Games</td>
-              <td>About Us</td>
-              <td>Order Tracking</td>
+              <td>
+                <a href="#">Games</a>
+              </td>
+              <td>
+                <a href="#">About Us</a>
+              </td>
+              <td>
+                <a href="#">Order Tracking</a>
+              </td>
             </tr>
             <tr>
-              <td>Accessories</td>
-              <td>Contact Us</td>
-              <td>Wish List</td>
+              <td>
+                <a href="#">Accessories</a>
+              </td>
+              <td>
+                <a href="#">Contact Us</a>
+              </td>
+              <td>
+                <a href="#">Wish List</a>
+              </td>
             </tr>
             <tr>
-              <td>Laptops</td>
-              <td>Careers</td>
-              <td>Customer Service</td>
+              <td>
+                <a href="#">Laptops</a>
+              </td>
+              <td>
+                <a href="#">Careers</a>
+              </td>
+              <td>
+                <a href="#">Customer Service</a>
+              </td>
             </tr>
             <tr>
-              <td>TVs / Monitors</td>
-              <td>Gift Cards</td>
-              <td>Returns / Exchange</td>
+              <td>
+                <a href="#">TVs / Monitors</a>
+              </td>
+              <td>
+                <a href="#">Gift Cards</a>
+              </td>
+              <td>
+                <a href="#">Returns / Exchange</a>
+              </td>
             </tr>
           </tbody>
-        </table>
-      </FooterMenu>
+        </FooterMenu>
+      </FooterLinks>
     </FooterInnerContainer>
   </FooterContainer>
 );
