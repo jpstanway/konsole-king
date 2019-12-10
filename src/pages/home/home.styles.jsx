@@ -6,6 +6,6 @@ export const HomePage = styled.div`
   grid-template-rows: repeat(2, 50rem);
   padding: 2rem 5rem;
   width: 100%;
-  max-width: ${size.laptop};
+  max-width: ${size.laptopL};
   margin: auto;
 `;

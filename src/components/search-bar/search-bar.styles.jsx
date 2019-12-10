@@ -6,7 +6,7 @@ export const SearchContainer = styled.form`
   border: 3px solid var(--color-grey-light);
   border-radius: 4px;
   display: grid;
-  grid-template-columns: 35rem 1fr 5rem;
+  grid-template-columns: 50rem 1fr 5rem;
   margin-top: 5px;
 
   @media ${device.tablet} {

@@ -3,14 +3,13 @@ import React from "react";
 import {
   HeaderContainer,
   Navbar,
-  LogoContainer,
-  Logo,
   ContactAndSearchContainer,
   ContactList,
   ContactItem,
   PurchaseContainer
 } from "./header.styles";
 
+import Logo from "../logo/logo.component";
 import SearchBar from "../search-bar/search-bar.component";
 import AccountActions from "../account-actions/account-actions.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
@@ -18,9 +17,7 @@ import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 const Header = () => (
   <HeaderContainer>
     <Navbar>
-      <LogoContainer>
-        <Logo to="/">Konsole King</Logo>
-      </LogoContainer>
+      <Logo />
       <ContactAndSearchContainer>
         <ContactList>
           <ContactItem>

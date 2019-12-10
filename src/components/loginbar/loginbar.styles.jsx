@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../scripts/media";
+import { device, size } from "../../scripts/media";
 
 export const LoginbarContainer = styled.div`
   background-color: var(--color-grey-light);
@@ -13,7 +13,7 @@ export const LoginMenu = styled.div`
   justify-content: flex-end;
   width: 100%;
   margin: auto;
-  max-width: var(--breakpoint-xl);
+  max-width: ${size.laptopL}
   position: relative;
 `;
 

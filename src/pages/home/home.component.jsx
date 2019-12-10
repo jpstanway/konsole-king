@@ -9,7 +9,6 @@ const Home = () => (
       <div style={{ backgroundColor: "yellow" }}>img slider</div>
     </div>
     <div style={{ backgroundColor: "orangered" }}>categories</div>
-    <div style={{ backgroundColor: "purple" }}>footer</div>
   </HomePage>
 );
 

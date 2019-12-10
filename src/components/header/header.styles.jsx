@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { device, size } from "../../scripts/media";
 
 export const HeaderContainer = styled.div`
-  border-bottom: 1px solid var(--color-black);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
   font-size: 1.4rem;
 `;
 
@@ -15,7 +14,7 @@ export const Navbar = styled.div`
   padding: 2rem 5rem;
   width: 100%;
   margin: auto;
-  max-width: ${size.laptop};
+  max-width: ${size.laptopL};
 
   @media ${device.laptop} {
     height: auto;
@@ -26,18 +25,6 @@ export const Navbar = styled.div`
   @media ${device.mobileL} {
     padding: 4rem 0;
   }
-`;
-
-export const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 11rem;
-`;
-
-export const Logo = styled(Link)`
-  color: var(--color-black);
-  text-transform: uppercase;
 `;
 
 export const ContactAndSearchContainer = styled.div`
