@@ -1,18 +1,21 @@
 import React from "react";
 
-import { AccountActionsContainer } from "./account-actions.styles";
+import {
+  AccountActionsContainer,
+  AccountActionsLink
+} from "./account-actions.styles";
 
 const AccountActions = () => (
   <AccountActionsContainer>
     <li>
-      <a href="#">
+      <AccountActionsLink to="/">
         <i className="fas fa-heart"></i> Wishlist(0)
-      </a>
+      </AccountActionsLink>
     </li>
     <li>
-      <a href="#">
+      <AccountActionsLink to="/">
         <i className="fas fa-equals"></i> Compare(0)
-      </a>
+      </AccountActionsLink>
     </li>
   </AccountActionsContainer>
 );

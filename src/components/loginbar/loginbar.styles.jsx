@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { device, size } from "../../scripts/media";
 
 export const LoginbarContainer = styled.div`
@@ -54,10 +55,6 @@ export const LoginItem = styled.li`
     cursor: pointer;
     transition: all 0.2s;
 
-    a {
-      color: var(--color-grey-dark);
-    }
-
     &:hover,
     &:active {
       background-color: var(--color-grey);
@@ -68,6 +65,10 @@ export const LoginItem = styled.li`
       color: var(--color-white);
     }
   }
+`;
+
+export const LoginItemLink = styled(Link)`
+  color: var(--color-grey-dark);
 `;
 
 export const MobileLoginMenu = styled.div`

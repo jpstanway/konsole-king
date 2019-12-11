@@ -5,12 +5,12 @@ import {
   FooterInnerContainer,
   SocialMenu,
   SocialIcon,
-  FooterSignUp,
   FooterInputContainer,
   FooterInput,
   FooterBtn,
   FooterInfo,
   FooterLinks,
+  FooterLink,
   FooterMenu
 } from "./footer.styles";
 
@@ -27,27 +27,27 @@ const Footer = () => (
         <Logo />
         <SocialMenu>
           <li>
-            <SocialIcon href="#">
+            <SocialIcon to="/">
               <i className="fab fa-facebook-square fa-2x"></i>
             </SocialIcon>
           </li>
           <li>
-            <SocialIcon href="#">
+            <SocialIcon to="/">
               <i className="fab fa-twitter-square fa-2x"></i>
             </SocialIcon>
           </li>
           <li>
-            <SocialIcon href="#">
+            <SocialIcon to="/">
               <i className="fab fa-pinterest-square fa-2x"></i>
             </SocialIcon>
           </li>
           <li>
-            <SocialIcon href="#">
+            <SocialIcon to="/">
               <i className="fab fa-linkedin fa-2x"></i>
             </SocialIcon>
           </li>
           <li>
-            <SocialIcon href="#">
+            <SocialIcon to="/">
               <i className="fab fa-youtube-square fa-2x"></i>
             </SocialIcon>
           </li>
@@ -70,57 +70,57 @@ const Footer = () => (
             </tr>
             <tr>
               <td>
-                <a href="#">Consoles</a>
+                <FooterLink to="/">Consoles</FooterLink>
               </td>
               <td>
-                <a href="#">Find A Store</a>
+                <FooterLink to="/">Find A Store</FooterLink>
               </td>
               <td>
-                <a href="#">My Account</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">Games</a>
-              </td>
-              <td>
-                <a href="#">About Us</a>
-              </td>
-              <td>
-                <a href="#">Order Tracking</a>
+                <FooterLink to="/">My Account</FooterLink>
               </td>
             </tr>
             <tr>
               <td>
-                <a href="#">Accessories</a>
+                <FooterLink to="/">Games</FooterLink>
               </td>
               <td>
-                <a href="#">Contact Us</a>
+                <FooterLink to="/">About Us</FooterLink>
               </td>
               <td>
-                <a href="#">Wish List</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">Laptops</a>
-              </td>
-              <td>
-                <a href="#">Careers</a>
-              </td>
-              <td>
-                <a href="#">Customer Service</a>
+                <FooterLink to="/">Order Tracking</FooterLink>
               </td>
             </tr>
             <tr>
               <td>
-                <a href="#">TVs / Monitors</a>
+                <FooterLink to="/">Accessories</FooterLink>
               </td>
               <td>
-                <a href="#">Gift Cards</a>
+                <FooterLink to="/">Contact Us</FooterLink>
               </td>
               <td>
-                <a href="#">Returns / Exchange</a>
+                <FooterLink to="/">Wish List</FooterLink>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <FooterLink to="/">Laptops</FooterLink>
+              </td>
+              <td>
+                <FooterLink to="/">Careers</FooterLink>
+              </td>
+              <td>
+                <FooterLink to="/">Customer Service</FooterLink>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <FooterLink to="/">TVs / Monitors</FooterLink>
+              </td>
+              <td>
+                <FooterLink to="/">Gift Cards</FooterLink>
+              </td>
+              <td>
+                <FooterLink to="/">Returns / Exchange</FooterLink>
               </td>
             </tr>
           </tbody>

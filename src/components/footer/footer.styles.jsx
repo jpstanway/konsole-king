@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { device, size } from "../../scripts/media";
 
 export const FooterContainer = styled.footer`
@@ -69,7 +70,7 @@ export const SocialMenu = styled.ul`
   justify-content: center;
 `;
 
-export const SocialIcon = styled.a`
+export const SocialIcon = styled(Link)`
   margin-right: 1rem;
   color: var(--color-grey-dark);
 
@@ -83,6 +84,14 @@ export const FooterLinks = styled.div`
   align-items: center;
 `;
 
+export const FooterLink = styled(Link)`
+  color: var(--color-grey);
+
+  &:hover {
+    color: var(--color-grey-dark);
+  }
+`;
+
 export const FooterMenu = styled.table`
   margin: auto;
   text-align: left;
@@ -90,14 +99,6 @@ export const FooterMenu = styled.table`
 
   th {
     color: var(--color-grey-dark);
-  }
-
-  td a {
-    color: var(--color-grey);
-
-    &:hover {
-      color: var(--color-grey-dark);
-    }
   }
 
   th,

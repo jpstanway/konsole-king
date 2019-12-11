@@ -6,6 +6,7 @@ import {
   LoginMenu,
   LoginItems,
   LoginItem,
+  LoginItemLink,
   MobileLoginMenu,
   MobileLoginButton
 } from "./loginbar.styles";
@@ -15,10 +16,10 @@ const Loginbar = () => (
     <LoginMenu>
       <LoginItems id="mobile-menu">
         <LoginItem>
-          <a href="#">Register</a>
+          <LoginItemLink to="/">Register</LoginItemLink>
         </LoginItem>
         <LoginItem>
-          <a href="#">Login</a>
+          <LoginItemLink to="/">Login</LoginItemLink>
         </LoginItem>
       </LoginItems>
       <MobileLoginMenu id="mobile-btn">

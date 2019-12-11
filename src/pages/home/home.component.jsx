@@ -1,14 +1,29 @@
 import React from "react";
 
-import { HomePage } from "./home.styles";
+import { HomePage, Main, Categories } from "./home.styles";
+import MainMenu from "../../components/main-menu/main-menu.component";
+import Category from "../../components/category-overview/category-overview.component";
+
+const categories = [
+  "Nintendo",
+  "PlayStation",
+  "Xbox",
+  "Google",
+  "Sega",
+  "Atari"
+];
 
 const Home = () => (
   <HomePage>
-    <div>
-      <div style={{ backgroundColor: "red" }}>menu</div>
+    <Main>
+      <MainMenu />
       <div style={{ backgroundColor: "yellow" }}>img slider</div>
-    </div>
-    <div>categories</div>
+    </Main>
+    <Categories>
+      {categories.map(category => (
+        <Category key={category} category={category} />
+      ))}
+    </Categories>
   </HomePage>
 );
 
