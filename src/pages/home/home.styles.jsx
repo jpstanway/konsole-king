@@ -4,7 +4,7 @@ import { size } from "../../scripts/media";
 export const HomePage = styled.div`
   display: grid;
   grid-template-rows: 50rem 1fr;
-  padding: 2rem 5rem 5rem 5rem;
+  padding: 2rem 5rem 10rem 5rem;
   width: 100%;
   max-width: ${size.laptopL};
   margin: auto;

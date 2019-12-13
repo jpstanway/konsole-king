@@ -1,10 +1,17 @@
 import React from "react";
 
-import { CategoryContainer, CategoryImg } from "./category-overview.styles";
+import {
+  CategoryOverlay,
+  CategoryContainer,
+  CategoryImg,
+  CategoryLogo
+} from "./category-overview.styles";
 
-const CategoryOverview = props => (
+const CategoryOverview = ({ category: { banner, logo, platform } }) => (
   <CategoryContainer to="/">
-    <CategoryImg src={props.category} alt={props.category} />
+    <CategoryImg src={banner} alt={platform} />
+    <CategoryLogo src={logo} alt={platform} />
+    <CategoryOverlay />
   </CategoryContainer>
 );
 
