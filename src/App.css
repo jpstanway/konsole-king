@@ -24,7 +24,29 @@ select:active {
   grid-template-rows: 4rem minmax(16rem, auto) 1fr minmax(30rem, min-content);
 }
 
+/* mobile menu */
 .mobile-menu-toggle {
   display: block !important;
   top: 4rem !important;
+}
+
+/* main slider */
+.slider-active {
+  opacity: 100% !important;
+}
+
+.show-slide-one {
+  left: 0;
+}
+
+.show-slide-two {
+  right: 0;
+}
+
+.hide-slide-one {
+  left: -100%;
+}
+
+.hide-slide-two {
+  right: -100%;
 }
