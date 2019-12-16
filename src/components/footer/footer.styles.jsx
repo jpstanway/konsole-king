@@ -13,7 +13,7 @@ export const FooterInnerContainer = styled.div`
   height: 100%;
   margin: auto;
   padding: 5rem;
-  max-width: ${size.laptopL};
+  max-width: ${size.laptopM};
   position: relative;
 
   @media ${device.tablet} {

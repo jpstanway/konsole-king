@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../../scripts/media";
 
 export const CategoryImg = styled.img`
   width: 100%;
-  max-width: 60rem;
   transition: all 0.5s;
 `;
 
 export const CategoryOverlay = styled.div`
-  height: 100%;
   width: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
   position: absolute;
@@ -18,8 +17,6 @@ export const CategoryOverlay = styled.div`
 
 export const CategoryContainer = styled(Link)`
   width: 100%;
-  height: 100%;
-  background-color: var(--color-grey);
   display: flex;
   align-items: center;
   position: relative;
@@ -37,4 +34,9 @@ export const CategoryLogo = styled.img`
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+
+  @media ${device.mobileL} {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;

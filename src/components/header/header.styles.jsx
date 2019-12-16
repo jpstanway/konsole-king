@@ -14,7 +14,7 @@ export const Navbar = styled.div`
   padding: 2rem 5rem;
   width: 100%;
   margin: auto;
-  max-width: ${size.laptopL};
+  max-width: ${size.laptopM};
 
   @media ${device.laptop} {
     height: auto;

@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { device } from "../../scripts/media";
 
 export const SliderControl = styled.div`
   width: 10rem;
@@ -12,7 +14,7 @@ export const SliderControl = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  transition: all 0.5s;
+  transition: all 0.2s;
 `;
 
 export const SliderBtn = styled.span`
@@ -38,20 +40,17 @@ export const SliderContainer = styled.div`
   }
 `;
 
-export const SlideOne = styled.div`
+export const Slide = styled.div`
   width: 100%;
   height: 100%;
-  background-color: var(--color-secondary);
+  background: url(${props => props.slide});
   position: absolute;
   top: 0;
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
 `;
 
-export const SlideTwo = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-tertiary);
+export const SlideLink = styled(Link)`
   position: absolute;
-  top: 0;
-  transition: all 0.3s ease-in;
+  bottom: 145px;
+  left: 78px;
 `;

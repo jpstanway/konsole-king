@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../../scripts/media";
 
 export const MainMenuContainer = styled.ul`
   list-style-type: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   width: 25rem;
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;
 
 export const MainMenuHeader = styled.li`
