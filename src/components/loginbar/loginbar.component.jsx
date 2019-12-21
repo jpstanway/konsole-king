@@ -16,10 +16,10 @@ const Loginbar = () => (
     <LoginMenu>
       <LoginItems id="mobile-menu">
         <LoginItem>
-          <LoginItemLink to="/">Register</LoginItemLink>
+          <LoginItemLink to="/register-login">Register</LoginItemLink>
         </LoginItem>
         <LoginItem>
-          <LoginItemLink to="/">Login</LoginItemLink>
+          <LoginItemLink to="/register-login">Login</LoginItemLink>
         </LoginItem>
       </LoginItems>
       <MobileLoginMenu id="mobile-btn">

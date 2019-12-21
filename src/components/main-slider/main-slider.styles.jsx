@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { device } from "../../scripts/media";
 
 export const SliderControl = styled.div`
   width: 10rem;
