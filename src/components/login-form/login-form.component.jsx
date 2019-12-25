@@ -1,34 +1,79 @@
-import React from "react";
+import React, { Component } from "react";
 
 import { LoginFormInputExtra } from "./login-form.styles";
 
 import AuthForm from "../auth-form/auth-form.component";
 import FormInput from "../form-input/form-input.component";
+import CustomButton from "../custom-button/custom-button.component";
 
-const LoginForm = () => {
-  const onSubmit = e => {
-    e.preventDefault();
-    console.log("login");
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+
+class LoginForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      remember: false
+    };
+  }
+
+  handleChange = e => {
+    const { name, value } = e.target;
+
+    this.setState({ [name]: value });
   };
 
-  return (
-    <AuthForm
-      onSubmit={onSubmit}
-      title="Sign In"
-      subText="Welcome back"
-      btnText="Secure Sign In"
-    >
-      <FormInput label="Email" type="email" name="email" />
-      <FormInput label="Password" type="password" name="password" />
-      <LoginFormInputExtra>
-        <div>
-          <input type="checkbox" name="remember" />
-          <label htmlFor="remember">Remember Me</label>
-        </div>
-        <a href="/">Forgot Password?</a>
-      </LoginFormInputExtra>
-    </AuthForm>
-  );
-};
+  onSubmit = async e => {
+    e.preventDefault();
+
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  render() {
+    return (
+      <AuthForm
+        onSubmit={this.onSubmit}
+        title="Sign In"
+        subText="Welcome back"
+        btnText="Secure Sign In"
+      >
+        <FormInput
+          label="Email"
+          type="email"
+          name="email"
+          onChange={this.handleChange}
+        />
+        <FormInput
+          label="Password"
+          type="password"
+          name="password"
+          onChange={this.handleChange}
+        />
+        <LoginFormInputExtra>
+          <div>
+            <input
+              type="checkbox"
+              name="remember"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="remember">Remember Me</label>
+          </div>
+          <a href="/">Forgot Password?</a>
+        </LoginFormInputExtra>
+        <CustomButton onClick={signInWithGoogle} googleSignIn>
+          Sign In With Google
+        </CustomButton>
+      </AuthForm>
+    );
+  }
+}
 
 export default LoginForm;
