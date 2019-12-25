@@ -23,27 +23,3 @@ export const Form = styled.form`
   justify-content: space-between;
   margin-bottom: 5rem;
 `;
-
-export const AuthFormInputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const AuthFormInput = styled.input`
-  width: 100%;
-  height: 5rem;
-  border-radius: 4px;
-  background-color: var(--color-grey-light);
-  border: 0;
-  padding-left: 1rem;
-  font-size: 1.8rem;
-`;
-
-export const AuthFormInputExtra = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  input[type="checkbox"] {
-    margin-right: 5px;
-  }
-`;

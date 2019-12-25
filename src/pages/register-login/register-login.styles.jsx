@@ -18,6 +18,8 @@ export const RegisterLoginPage = styled.div`
 export const AuthFormList = styled.div`
   h2 {
     border: 0;
+    margin-bottom: 1rem;
+    color: var(--color-grey-dark);
   }
 
   ul {
