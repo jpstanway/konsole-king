@@ -18,9 +18,15 @@ const SearchBar = () => {
       <SearchInput placeholder="Search for item" />
       <SearchDropdown>
         <option value="">All categories</option>
-        <option value="consoles">Consoles</option>
-        <option value="games">Games</option>
+        <option value="all-consoles">All consoles</option>
+        <option value="home-consoles">Home</option>
+        <option value="handheld-consoles">Handheld</option>
+        <option value="cloud-consoles">Cloud</option>
+        <option value="gaming-laptops">Laptops</option>
+        <option value="vr-headsets">VR</option>
+        <option value="accessories">Acessories</option>
         <option value="audio">Audio</option>
+        <option value="used">Used</option>
       </SearchDropdown>
       <SearchButton type="submit">
         <i className="fas fa-search fa-2x"></i>

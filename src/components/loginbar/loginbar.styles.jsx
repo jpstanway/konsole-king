@@ -21,13 +21,13 @@ export const LoginMenu = styled.div`
 export const LoginItems = styled.ul`
   list-style-type: none;
 
-  @media ${device.tablet} {
-    display: none;
-    position: absolute;
-    top: -10rem;
-    left: 0;
-    width: 100%;
-  }
+  // @media ${device.tablet} {
+  //   display: none;
+  //   position: absolute;
+  //   top: -10rem;
+  //   left: 0;
+  //   width: 100%;
+  // }
 `;
 
 export const LoginItem = styled.li`
@@ -38,33 +38,33 @@ export const LoginItem = styled.li`
     margin-left: 1rem;
     padding-left: 1rem;
 
-    @media ${device.tablet} {
-      border-left: 0;
-      margin: 0;
-      padding: 0 0 0 2rem;
-    }
+    // @media ${device.tablet} {
+    //   border-left: 0;
+    //   margin: 0;
+    //   padding: 0 0 0 2rem;
+    // }
   }
 
-  @media ${device.tablet} {
-    display: flex;
-    align-items: center;
-    height: 4rem;
-    background-color: var(--color-grey-light);
-    border-top: 1px solid var(--color-white);
-    padding-left: 2rem;
-    cursor: pointer;
-    transition: all 0.2s;
+  // @media ${device.tablet} {
+  //   display: flex;
+  //   align-items: center;
+  //   height: 4rem;
+  //   background-color: var(--color-grey-light);
+  //   border-top: 1px solid var(--color-white);
+  //   padding-left: 2rem;
+  //   cursor: pointer;
+  //   transition: all 0.2s;
 
-    &:hover,
-    &:active {
-      background-color: var(--color-grey);
-    }
+  //   &:hover,
+  //   &:active {
+  //     background-color: var(--color-grey);
+  //   }
 
-    &:hover > a,
-    &:active > a {
-      color: var(--color-white);
-    }
-  }
+  //   &:hover > a,
+  //   &:active > a {
+  //     color: var(--color-white);
+  //   }
+  // }
 `;
 
 export const LoginItemLink = styled(Link)`

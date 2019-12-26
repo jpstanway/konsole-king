@@ -3,7 +3,7 @@ import { device, size } from "../../scripts/media";
 
 export const RegisterLoginPage = styled.div`
   display: grid;
-  grid-gap: 8rem;
+  grid-gap: 2rem 8rem;
   grid-template-columns: repeat(2, 1fr);
   margin: auto;
   max-width: ${size.laptopM};

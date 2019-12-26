@@ -66,6 +66,7 @@ export const ContactItem = styled.li`
 export const PurchaseContainer = styled.div`
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   height: 8.5rem;
 
   @media ${device.laptop} {

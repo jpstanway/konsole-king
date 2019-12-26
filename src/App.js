@@ -10,7 +10,13 @@ import Home from "./pages/home/home.component";
 import RegisterLogin from "./pages/register-login/register-login.component";
 import Footer from "./components/footer/footer.component";
 
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import collections from "./scripts/collections";
+
+import {
+  auth,
+  createUserProfileDocument,
+  addCategoryAndDocs
+} from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
 class App extends Component {
@@ -35,6 +41,9 @@ class App extends Component {
       // set current user to redux store
       setCurrentUser(userAuth);
     });
+
+    // add category + items
+    addCategoryAndDocs(collections.title, collections.categories);
   }
 
   componentWillUnmount() {

@@ -5,6 +5,7 @@ export const CartContainer = styled.div`
   grid-template-rows: repeat(2, 2.5rem);
   grid-template-columns: 5rem 7rem;
   align-items: center;
+  margin-left: 2rem;
 `;
 
 export const CartIcon = styled.i`

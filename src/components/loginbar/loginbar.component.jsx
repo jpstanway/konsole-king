@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "../../scripts/mobile-menu";
+// import "../../scripts/mobile-menu";
 
 import { auth } from "../../firebase/firebase.utils";
 
@@ -10,9 +10,7 @@ import {
   LoginMenu,
   LoginItems,
   LoginItem,
-  LoginItemLink,
-  MobileLoginMenu,
-  MobileLoginButton
+  LoginItemLink
 } from "./loginbar.styles";
 
 const Loginbar = props => (
@@ -36,9 +34,9 @@ const Loginbar = props => (
           </LoginItem>
         </LoginItems>
       )}
-      <MobileLoginMenu id="mobile-btn">
+      {/* <MobileLoginMenu id="mobile-btn">
         <MobileLoginButton />
-      </MobileLoginMenu>
+      </MobileLoginMenu> */}
     </LoginMenu>
   </LoginbarContainer>
 );

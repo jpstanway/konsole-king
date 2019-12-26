@@ -17,19 +17,37 @@ const MainMenu = () => (
     </MainMenuHeader>
     <MainMenuItem>
       <MainMenuLink to="/">
-        Consoles
+        All consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
       <MainMenuLink to="/">
-        Games
+        Home consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
       <MainMenuLink to="/">
-        Laptops
+        Handheld consoles
+        <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
+      </MainMenuLink>
+    </MainMenuItem>
+    <MainMenuItem>
+      <MainMenuLink to="/">
+        Cloud consoles
+        <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
+      </MainMenuLink>
+    </MainMenuItem>
+    <MainMenuItem>
+      <MainMenuLink to="/">
+        Gaming laptops
+        <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
+      </MainMenuLink>
+    </MainMenuItem>
+    <MainMenuItem>
+      <MainMenuLink to="/">
+        VR headsets
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
@@ -42,24 +60,6 @@ const MainMenu = () => (
     <MainMenuItem>
       <MainMenuLink to="/">
         Audio
-        <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
-      </MainMenuLink>
-    </MainMenuItem>
-    <MainMenuItem>
-      <MainMenuLink to="/">
-        TVs & Monitors
-        <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
-      </MainMenuLink>
-    </MainMenuItem>
-    <MainMenuItem>
-      <MainMenuLink to="/">
-        Collectibles
-        <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
-      </MainMenuLink>
-    </MainMenuItem>
-    <MainMenuItem>
-      <MainMenuLink to="/">
-        Controllers
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>

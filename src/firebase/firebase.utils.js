@@ -44,6 +44,19 @@ export const createUserProfileDocument = async userAuth => {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// create category and add multiple items
+export const addCategoryAndDocs = async (categoryKey, itemsToAdd) => {
+  const categoryRef = firestore.collection(categoryKey);
+
+  const batch = firestore.batch();
+  itemsToAdd.forEach(item => {
+    const newDocRef = categoryRef.doc();
+    batch.set(newDocRef, item);
+  });
+
+  return await batch.commit();
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

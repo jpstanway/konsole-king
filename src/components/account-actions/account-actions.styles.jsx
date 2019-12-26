@@ -5,6 +5,7 @@ export const AccountActionsContainer = styled.ul`
   list-style: none;
   padding: 0;
   min-width: 10rem;
+  margin-bottom: 1rem;
 
   li i {
     color: var(--color-primary);

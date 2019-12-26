@@ -51,5 +51,5 @@ export const Slide = styled.div`
 export const SlideLink = styled(Link)`
   position: absolute;
   bottom: 145px;
-  left: 78px;
+  left: 100px;
 `;
