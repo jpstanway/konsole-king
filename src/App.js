@@ -8,15 +8,17 @@ import Loginbar from "./components/loginbar/loginbar.component";
 import Header from "./components/header/header.component";
 import Home from "./pages/home/home.component";
 import RegisterLogin from "./pages/register-login/register-login.component";
+import Browse from "./pages/browse/browse.component";
 import Footer from "./components/footer/footer.component";
 
-import collections from "./scripts/collections";
+// import collections from "./scripts/collections";
 
 import {
   auth,
-  createUserProfileDocument,
-  addCategoryAndDocs
+  createUserProfileDocument
+  // addCategoryAndDocs
 } from "./firebase/firebase.utils";
+
 import { setCurrentUser } from "./redux/user/user.actions";
 
 class App extends Component {
@@ -43,7 +45,7 @@ class App extends Component {
     });
 
     // add category + items
-    addCategoryAndDocs(collections.title, collections.categories);
+    // addCategoryAndDocs(collections.title, collections.categories);
   }
 
   componentWillUnmount() {
@@ -57,6 +59,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" render={() => <Home />} />
+          <Route path="/browse" render={() => <Browse />} />
           <Route
             path="/register-login"
             render={() =>

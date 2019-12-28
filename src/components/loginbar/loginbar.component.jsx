@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-// import "../../scripts/mobile-menu";
+import "../../scripts/mobile-menu";
 
 import { auth } from "../../firebase/firebase.utils";
 
@@ -10,33 +10,41 @@ import {
   LoginMenu,
   LoginItems,
   LoginItem,
-  LoginItemLink
+  LoginItemLink,
+  MobileLoginMenu,
+  MobileLoginButton
 } from "./loginbar.styles";
 
 const Loginbar = props => (
   <LoginbarContainer>
     <LoginMenu>
-      {props.currentUser ? (
-        <LoginItems id="mobile-menu">
+      <LoginItems id="mobile-menu">
+        <LoginItem>
+          <LoginItemLink to="/">Home</LoginItemLink>
+        </LoginItem>
+        <LoginItem>
+          <LoginItemLink to="/browse">Browse</LoginItemLink>
+        </LoginItem>
+        {props.currentUser ? (
           <LoginItem>
             <LoginItemLink to="/register-login" onClick={() => auth.signOut()}>
               Logout
             </LoginItemLink>
           </LoginItem>
-        </LoginItems>
-      ) : (
-        <LoginItems id="mobile-menu">
-          <LoginItem>
-            <LoginItemLink to="/register-login">Register</LoginItemLink>
-          </LoginItem>
-          <LoginItem>
-            <LoginItemLink to="/register-login">Login</LoginItemLink>
-          </LoginItem>
-        </LoginItems>
-      )}
-      {/* <MobileLoginMenu id="mobile-btn">
+        ) : (
+          <>
+            <LoginItem>
+              <LoginItemLink to="/register-login">Register</LoginItemLink>
+            </LoginItem>
+            <LoginItem>
+              <LoginItemLink to="/register-login">Login</LoginItemLink>
+            </LoginItem>
+          </>
+        )}
+      </LoginItems>
+      <MobileLoginMenu id="mobile-btn">
         <MobileLoginButton />
-      </MobileLoginMenu> */}
+      </MobileLoginMenu>
     </LoginMenu>
   </LoginbarContainer>
 );

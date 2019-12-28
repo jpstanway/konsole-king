@@ -57,6 +57,25 @@ export const addCategoryAndDocs = async (categoryKey, itemsToAdd) => {
   return await batch.commit();
 };
 
+// convert categories snapshot to mappable object
+export const convertCategoriesSnapshotToMap = categories => {
+  const convertedCategory = categories.docs.map(doc => {
+    const { title, items } = doc.data();
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items
+    };
+  });
+
+  return convertedCategory.reduce((acc, cat) => {
+    acc[cat.title.toLowerCase()] = cat;
+    return acc;
+  }, {});
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
