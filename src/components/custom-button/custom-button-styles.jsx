@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 const getButtonStyles = props => {
   if (props.googleSignIn) {
     return googleSignInStyles;
+  } else if (props.btnLink) {
+    return linkButtonStyles;
   }
 
   return defaultButtonStyles;
@@ -25,6 +27,18 @@ const googleSignInStyles = css`
   &:hover,
   &:active {
     background-color: var(--color-secondary-light);
+  }
+`;
+
+const linkButtonStyles = css`
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 500;
+  padding: 0;
+  margin-top: 2rem;
+
+  &:hover {
+    color: var(--color-primary-light);
   }
 `;
 

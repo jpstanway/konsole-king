@@ -58,8 +58,8 @@ class App extends Component {
         <Loginbar />
         <Header />
         <Switch>
-          <Route exact path="/" render={() => <Home />} />
-          <Route path="/browse" render={() => <Browse />} />
+          <Route exact path="/" component={Home} />
+          <Route path="/browse" component={Browse} />
           <Route
             path="/register-login"
             render={() =>
