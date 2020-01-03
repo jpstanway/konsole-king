@@ -2,20 +2,26 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const CardPurchaseContainer = styled.div`
+  background-color: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   display: none;
   padding: 2rem;
+  position: absolute;
+  left: -1px;
+  width: 27rem;
+  z-index: 999;
 `;
 
 export const CardContainer = styled.div`
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
-  height: auto;
-  width: 100%;
-  max-width: 27rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 27rem;
   margin-right: 5px;
+  margin-bottom: 5px;
+  position: relative;
 
   &:hover {
-    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.3);
   }
 
   &:hover ${CardPurchaseContainer} {
