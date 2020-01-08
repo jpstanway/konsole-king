@@ -7,9 +7,3 @@ export const BrowsePage = styled.div`
   max-width: ${size.laptopM};
   margin: auto;
 `;
-
-export const BrowsePageTitle = styled.h2`
-  color: var(--color-grey-dark);
-  padding-bottom: 1rem;
-  margin-bottom: 5rem;
-`;

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import {
   AllCategoriesContainer,
@@ -8,30 +10,25 @@ import {
 } from "./all-categories.styles";
 
 import ProductCard from "../../components/product-card/product-card.component";
+import { selectCategoriesForPreview } from "../../redux/browse/browse.selectors";
 
-const AllCategories = () => (
+const AllCategories = ({ categories }) => (
   <AllCategoriesContainer>
-    <CategoryPreviewContainer>
-      <CategoryPreviewTitle>Category Name</CategoryPreviewTitle>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <CategoryPreviewLink to="/">
-        <i className="fas fa-chevron-right fa-5x"></i>
-      </CategoryPreviewLink>
-    </CategoryPreviewContainer>
-    <CategoryPreviewContainer>
-      <CategoryPreviewTitle>Category Name</CategoryPreviewTitle>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <CategoryPreviewLink to="/">
-        <i className="fas fa-chevron-right fa-5x"></i>
-      </CategoryPreviewLink>
-    </CategoryPreviewContainer>
+    <h2>Browse</h2>
+    {categories.map(({ id, title }) => (
+      <CategoryPreviewContainer key={id}>
+        <CategoryPreviewTitle>{title}</CategoryPreviewTitle>
+        <ProductCard />
+        <CategoryPreviewLink to={`/browse/${title}`}>
+          <i className="fas fa-chevron-right fa-5x"></i>
+        </CategoryPreviewLink>
+      </CategoryPreviewContainer>
+    ))}
   </AllCategoriesContainer>
 );
 
-export default AllCategories;
+const mapStateToProps = createStructuredSelector({
+  categories: selectCategoriesForPreview
+});
+
+export default connect(mapStateToProps)(AllCategories);

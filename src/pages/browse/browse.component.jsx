@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
-import { BrowsePage, BrowsePageTitle } from "./browse.styles";
+import { BrowsePage } from "./browse.styles";
 
 import AllCategories from "../../components/all-categories/all-categories.component";
+import CategoryPage from "../category/category.component";
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
 import {
@@ -15,6 +16,7 @@ import {
 import { updateCategories } from "../../redux/browse/browse.actions";
 
 const AllCategoriesWithSpinner = WithSpinner(AllCategories);
+const CategoryPageWithSpinner = WithSpinner(CategoryPage);
 
 class Browse extends Component {
   constructor(props) {
@@ -43,12 +45,18 @@ class Browse extends Component {
 
     return (
       <BrowsePage>
-        <BrowsePageTitle>Browse</BrowsePageTitle>
         <Route
           exact
           path={`${match.path}`}
           render={props => (
             <AllCategoriesWithSpinner isLoading={loading} {...props} />
+          )}
+        />
+        <Route
+          exact
+          path={`${match.path}/:categoryId`}
+          render={props => (
+            <CategoryPageWithSpinner isLoading={loading} {...props} />
           )}
         />
       </BrowsePage>
