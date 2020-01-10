@@ -13,14 +13,18 @@ import {
 
 import CustomButton from "../custom-button/custom-button.component";
 
-const ProductCard = () => (
+const ProductCard = ({ item }) => (
   <CardContainer>
     <CardInfoContainer>
-      <CardProductImage src="" alt="product" />
-      <CardProductLink to="/">product name</CardProductLink>
-      <CardBrandName>brand</CardBrandName>
+      <CardProductImage
+        src={item.imageUrl}
+        alt="product"
+        className={item.id >= 500 && item.id <= 599 ? "audio" : ""}
+      />
+      <CardProductLink to="/">{item.item}</CardProductLink>
+      <CardBrandName>{item.company}</CardBrandName>
       <CardDivider />
-      <CardProductPrice>$999.99</CardProductPrice>
+      <CardProductPrice>${Number(item.price) / 100}</CardProductPrice>
     </CardInfoContainer>
     <CardPurchaseContainer>
       <CustomButton>Add To Cart</CustomButton>

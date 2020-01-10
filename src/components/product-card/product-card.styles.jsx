@@ -15,6 +15,7 @@ export const CardPurchaseContainer = styled.div`
 
 export const CardContainer = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 34rem;
   width: 27rem;
   margin-right: 5px;
   margin-bottom: 5px;
@@ -36,8 +37,12 @@ export const CardInfoContainer = styled.div`
 `;
 
 export const CardProductImage = styled.img`
-  height: 15rem;
   width: 100%;
+
+  &.audio {
+    max-height: 17rem;
+    width: auto;
+  }
 `;
 
 export const CardProductLink = styled(Link)`

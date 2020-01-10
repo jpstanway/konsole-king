@@ -41,7 +41,7 @@ const MainMenu = () => (
     </MainMenuItem>
     <MainMenuItem>
       <MainMenuLink to="/">
-        Gaming laptops
+        Legacy consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>

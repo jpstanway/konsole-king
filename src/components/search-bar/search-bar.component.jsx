@@ -22,7 +22,7 @@ const SearchBar = () => {
         <option value="home-consoles">Home</option>
         <option value="handheld-consoles">Handheld</option>
         <option value="cloud-consoles">Cloud</option>
-        <option value="gaming-laptops">Laptops</option>
+        <option value="legacy-consoles">Legacy</option>
         <option value="vr-headsets">VR</option>
         <option value="accessories">Acessories</option>
         <option value="audio">Audio</option>

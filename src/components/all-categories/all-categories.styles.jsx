@@ -6,6 +6,12 @@ export const AllCategoriesContainer = styled.div`
   width: 100%;
 `;
 
+export const AllCategoriesTitle = styled.h2`
+  color: var(--color-grey-dark);
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+`;
+
 export const CategoryPreviewContainer = styled.div`
   display: flex;
   flex-wrap: wrap;

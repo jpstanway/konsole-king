@@ -60,12 +60,13 @@ export const addCategoryAndDocs = async (categoryKey, itemsToAdd) => {
 // convert categories snapshot to mappable object
 export const convertCategoriesSnapshotToMap = categories => {
   const convertedCategory = categories.docs.map(doc => {
-    const { title, items } = doc.data();
+    const { title, categoryRank, items } = doc.data();
 
     return {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
       title,
+      categoryRank,
       items
     };
   });
