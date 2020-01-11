@@ -16,7 +16,7 @@ const Category = ({ category }) => (
     <CategoryTitle>{category.title.toUpperCase()}</CategoryTitle>
     <CategoryItems>
       {category.items.map(item => (
-        <ProductCard key={item.id} item={item} />
+        <ProductCard key={item.id} item={item} categoryId={category.title} />
       ))}
     </CategoryItems>
   </CategoryContainer>

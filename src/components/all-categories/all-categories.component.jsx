@@ -22,7 +22,7 @@ const AllCategories = ({ categories }) => (
         <CategoryPreviewContainer key={id}>
           <CategoryPreviewTitle>{title}</CategoryPreviewTitle>
           {items.slice(0, 4).map(item => (
-            <ProductCard key={item.id} item={item} />
+            <ProductCard key={item.id} item={item} categoryId={title} />
           ))}
           <CategoryPreviewLink to={`/browse/${title}`}>
             <i className="fas fa-chevron-right fa-5x"></i>

@@ -16,9 +16,23 @@ export const selectCategoriesForPreview = createSelector(
 );
 
 // select category by url parameter
-export const selectCategory = collectionUrlParam =>
+export const selectCategory = categoryUrlParam =>
   createSelector([selectCategories], categories =>
-    categories ? categories[collectionUrlParam] : null
+    categories ? categories[categoryUrlParam] : null
   );
 
-// select item by url parameter
+// // select items in category
+// export const selectItem = (categoryUrlParam, itemUrlParam) =>
+//   createSelector(
+//     [selectCategory(categoryUrlParam)],
+//     category => console.log(category),
+//     category.items
+//       ? category.items.find(item => item.id === itemUrlParam)
+//       : null
+//   );
+
+// // select item by url parameter
+// export const selectItem = itemUrlParam =>
+//   createSelector([selectItems], items =>
+//     items ? items.find(item => item.id === itemUrlParam) : null
+//   );
