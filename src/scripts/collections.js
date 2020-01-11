@@ -178,7 +178,7 @@ export default {
           company: "Nintendo",
           yearOfRelease: "1991",
           price: "6999",
-          linkUrl:
+          imageUrl:
             "https://res.cloudinary.com/mtninja/image/upload/v1578540354/snes-500_hvq1yd.jpg"
         },
         {

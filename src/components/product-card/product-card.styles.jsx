@@ -31,18 +31,17 @@ export const CardContainer = styled.div`
 `;
 
 export const CardInfoContainer = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   padding: 2rem;
 `;
 
 export const CardProductImage = styled.img`
   width: 100%;
-
-  &.audio {
-    max-height: 17rem;
-    width: auto;
-  }
+  max-height: 18rem;
+  margin: auto 0;
 `;
 
 export const CardProductLink = styled(Link)`

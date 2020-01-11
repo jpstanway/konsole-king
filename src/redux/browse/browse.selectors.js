@@ -20,3 +20,5 @@ export const selectCategory = collectionUrlParam =>
   createSelector([selectCategories], categories =>
     categories ? categories[collectionUrlParam] : null
   );
+
+// select item by url parameter
