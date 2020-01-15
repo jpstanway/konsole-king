@@ -14,6 +14,10 @@ export const AuthFormContainer = styled.div`
     color: var(--color-grey);
     margin-bottom: 5rem;
   }
+
+  button {
+    width: 100%;
+  }
 `;
 
 export const Form = styled.form`

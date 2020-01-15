@@ -35,6 +35,7 @@ const linkButtonStyles = css`
   color: var(--color-primary);
   font-weight: 500;
   padding: 0;
+  width: 12rem;
   margin-top: 2rem;
 
   &:hover {
@@ -43,11 +44,11 @@ const linkButtonStyles = css`
 `;
 
 export const CustomButtonContainer = styled.button`
-  width: 100%;
   border: 0;
   border-radius: 4px;
   font-weight: 700;
   padding: 2rem;
+  width: 16rem;
   text-align: center;
   cursor: pointer;
 

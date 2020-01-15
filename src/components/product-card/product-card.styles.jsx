@@ -11,6 +11,10 @@ export const CardPurchaseContainer = styled.div`
   left: -1px;
   width: 27rem;
   z-index: 999;
+
+  button {
+    width: 100%;
+  }
 `;
 
 export const CardContainer = styled.div`
