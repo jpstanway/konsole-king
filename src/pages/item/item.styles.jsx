@@ -54,7 +54,7 @@ export const ItemBrand = styled.p`
 `;
 
 export const ItemSummary = styled.p`
-  color: var(--color-grey);
+  color: var(--color-grey-dark);
   margin: 2rem 0;
 `;
 

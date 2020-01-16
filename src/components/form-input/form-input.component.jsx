@@ -1,11 +1,15 @@
 import React from "react";
 
-import { InputContainer, Input } from "./form-input.styles";
+import { InputContainer, Input, TextArea, Label } from "./form-input.styles";
 
-const FormInput = ({ label, type, name, onChange }) => (
+const FormInput = ({ label, type, name, onChange, textarea }) => (
   <InputContainer>
-    <label htmlFor={name}>{label}</label>
-    <Input type={type} name={name} onChange={onChange} />
+    <Label htmlFor={name}>{label}</Label>
+    {textarea ? (
+      <TextArea name={name} onChange={onChange} />
+    ) : (
+      <Input type={type} name={name} onChange={onChange} />
+    )}
   </InputContainer>
 );
 
