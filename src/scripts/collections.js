@@ -13,7 +13,13 @@ export default {
           yearOfRelease: "2006",
           price: "8999",
           imageUrl:
-            "https://res.cloudinary.com/mtninja/image/upload/v1578540352/ps3-500_qpsud4.jpg"
+            "https://res.cloudinary.com/mtninja/image/upload/v1578540352/ps3-500_qpsud4.jpg",
+          description:
+            "With the PlayStation 3 160GB system, you get free PlayStation Network membership, built-in Wi-Fi and 160GB of hard disk drive storage for games, music, videos and photos. And every PS3 system comes with a built-in Blu-ray player to give you pristine picture quality and the best high-definition viewing experience available. Whether it's gaming, Blu-ray movies, music or online services, experience it all with the PlayStation 3 system.",
+          weight: "3.82 Kg",
+          dimensions: "34.3 x 21.3 x 16 cm",
+          color: "black",
+          reviews: []
         },
         {
           id: 102,

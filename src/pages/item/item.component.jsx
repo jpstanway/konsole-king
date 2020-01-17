@@ -52,7 +52,7 @@ const Item = ({ match, category }) => {
         </ItemCartControls>
       </ItemPurchaseContainer>
       <ItemSpecifications>
-        <TabbedContainer />
+        <TabbedContainer item={item} />
       </ItemSpecifications>
     </ItemPage>
   );
