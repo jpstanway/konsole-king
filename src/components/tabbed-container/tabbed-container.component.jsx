@@ -55,15 +55,15 @@ const TabbedContainer = ({ item }) => {
           <tbody>
             <TabInfoTableRow>
               <TabInfoTableData>Weight</TabInfoTableData>
-              <TabInfoTableData>{item.weight}</TabInfoTableData>
+              <TabInfoTableData>{item.addInfo.weight}</TabInfoTableData>
             </TabInfoTableRow>
             <TabInfoTableRow>
               <TabInfoTableData>Dimensions</TabInfoTableData>
-              <TabInfoTableData>{item.dimensions}</TabInfoTableData>
+              <TabInfoTableData>{item.addInfo.dimensions}</TabInfoTableData>
             </TabInfoTableRow>
             <TabInfoTableRow>
               <TabInfoTableData>Color</TabInfoTableData>
-              <TabInfoTableData>{item.color}</TabInfoTableData>
+              <TabInfoTableData>{item.addInfo.color}</TabInfoTableData>
             </TabInfoTableRow>
           </tbody>
         </TabInfoTable>

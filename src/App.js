@@ -11,12 +11,12 @@ import RegisterLogin from "./pages/register-login/register-login.component";
 import Browse from "./pages/browse/browse.component";
 import Footer from "./components/footer/footer.component";
 
-// import collections from "./scripts/collections";
+//import collections from "./scripts/collections";
 
 import {
   auth,
   createUserProfileDocument
-  // addCategoryAndDocs
+  //addCategoryAndDocs
 } from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -45,7 +45,7 @@ class App extends Component {
     });
 
     // add category + items
-    // addCategoryAndDocs(collections.title, collections.categories);
+    //addCategoryAndDocs(collections.title, collections.categories);
   }
 
   componentWillUnmount() {
