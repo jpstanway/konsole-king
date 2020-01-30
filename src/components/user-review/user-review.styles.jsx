@@ -13,6 +13,7 @@ export const UserReviewTextBubble = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 2rem;
   position: relative;
+  width: 100%;
   z-index: 0;
 
   &::before {

@@ -8,15 +8,12 @@ import {
   TabInfoParagraph,
   TabInfoTable,
   TabInfoTableRow,
-  TabInfoTableData,
-  TabInfoReviewForm
+  TabInfoTableData
 } from "./tabbed-container.styles";
 
-import FormInput from "../form-input/form-input.component";
-import CustomButton from "../custom-button/custom-button.component";
 import UserReview from "../user-review/user-review.component";
 
-const TabbedContainer = ({ item }) => {
+const TabbedContainer = ({ item, children }) => {
   const [activeTab, setActiveTab] = useState("desc");
 
   return (
@@ -71,36 +68,16 @@ const TabbedContainer = ({ item }) => {
       <TabInfo activeInfo={activeTab === "reviews"}>
         <div>
           {item.reviews.length > 0 ? (
-            item.reviews.map(review => <UserReview review={review} />)
+            item.reviews.map(review => (
+              <UserReview key={review.name} review={review} />
+            ))
           ) : (
             <p style={{ marginBottom: "3rem" }}>
               There are no reviews for this item yet.
             </p>
           )}
         </div>
-        <div>
-          <TabInfoReviewForm action="">
-            <FormInput
-              label="Name"
-              type="text"
-              name="name"
-              onChange={() => console.log("woo")}
-            />
-            <FormInput
-              label="Email"
-              type="email"
-              name="email"
-              onChange={() => console.log("wooo")}
-            />
-            <FormInput
-              label="Your Review"
-              name="review"
-              onChange={() => console.log("wooo")}
-              textarea
-            />
-            <CustomButton>Submit</CustomButton>
-          </TabInfoReviewForm>
-        </div>
+        <div>{children}</div>
       </TabInfo>
     </div>
   );

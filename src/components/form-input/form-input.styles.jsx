@@ -21,7 +21,7 @@ export const TextArea = styled.textarea`
   border-radius: 4px;
   background-color: var(--color-grey-light);
   border: 0;
-  padding-left: 1rem;
+  padding: 1rem;
   font-size: 1.8rem;
   margin-bottom: 1rem;
 `;

@@ -50,12 +50,43 @@ export const addCategoryAndDocs = async (categoryKey, itemsToAdd) => {
 
   const batch = firestore.batch();
   itemsToAdd.forEach(item => {
-    const newDocRef = categoryRef.doc();
+    const newDocRef = categoryRef.doc(item.title);
     batch.set(newDocRef, item);
   });
 
   return await batch.commit();
 };
+
+// add review
+export const updateItemReviews = async (category, itemObj, review) => {
+  try {
+    // get the category
+    let categoryRef = await firestore.collection("categories").doc(category);
+    let categoryData = await categoryRef.get();
+
+    // get the items array
+    let items = await categoryData.data().items;
+
+    // get index of item to be updated
+    let itemIndex = items.map(item => item.item).indexOf(itemObj.item);
+
+    // create new item object
+    // and replace old object
+    items[itemIndex] = {
+      ...itemObj,
+      reviews: [...itemObj.reviews, review]
+    };
+
+    // save new items back to category in database
+    categoryRef.update({ items });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// edit review
+
+// delete review
 
 // convert categories snapshot to mappable object
 export const convertCategoriesSnapshotToMap = categories => {

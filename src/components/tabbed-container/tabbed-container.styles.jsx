@@ -103,18 +103,3 @@ export const TabInfoTableData = styled.td`
     width: 15%;
   }
 `;
-
-export const TabInfoReviewForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  max-width: 50rem;
-  width: 100%;
-
-  input {
-    margin-bottom: 1rem;
-  }
-
-  button {
-    align-self: flex-end;
-  }
-`;

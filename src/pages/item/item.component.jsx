@@ -20,6 +20,7 @@ import { selectCategory } from "../../redux/browse/browse.selectors";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import QuantitySelector from "../../components/quantity-selector/quantity-selector.component";
 import TabbedContainer from "../../components/tabbed-container/tabbed-container.component";
+import UserReviewForm from "../../components/user-review-form/user-review-form.component";
 
 const Item = ({ match, category }) => {
   const item = category.items.find(
@@ -52,7 +53,9 @@ const Item = ({ match, category }) => {
         </ItemCartControls>
       </ItemPurchaseContainer>
       <ItemSpecifications>
-        <TabbedContainer item={item} />
+        <TabbedContainer item={item}>
+          <UserReviewForm item={item} categoryName={category.title} />
+        </TabbedContainer>
       </ItemSpecifications>
     </ItemPage>
   );
