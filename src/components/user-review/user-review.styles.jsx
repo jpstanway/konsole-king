@@ -51,9 +51,21 @@ export const UserReviewAvatar = styled.div`
   width: 7rem;
 `;
 
+export const UserNameAndRating = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+`;
+
 export const UserReviewName = styled.h4`
   color: var(--color-tertiary);
-  margin-bottom: 2rem;
+  margin-right: 1rem;
+`;
+
+export const UserRating = styled.span`
+  color: var(--color-grey);
+  font-weight: 700;
+  font-size: 1.4rem;
 `;
 
 export const UserReviewText = styled.p`

@@ -13,7 +13,8 @@ class RegisterForm extends Component {
     this.state = {
       email: "",
       password: "",
-      confirm_password: ""
+      confirm_password: "",
+      error: ""
     };
   }
 
@@ -30,7 +31,7 @@ class RegisterForm extends Component {
 
     if (password !== confirm_password) {
       // error handling
-      alert("password don't match");
+      this.setState({ error: "Passwords don't match." });
       return;
     }
 
@@ -48,7 +49,7 @@ class RegisterForm extends Component {
         confirm_password: ""
       });
     } catch (error) {
-      console.error(error);
+      this.setState({ error: error.message });
     }
   };
 
@@ -59,6 +60,7 @@ class RegisterForm extends Component {
         title="Create New Account"
         subText="Create your own Konsole King account"
         btnText="Sign Up"
+        error={this.state.error}
       >
         <FormInput
           label="Email"

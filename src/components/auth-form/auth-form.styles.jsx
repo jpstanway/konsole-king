@@ -12,7 +12,7 @@ export const AuthFormContainer = styled.div`
 
   p {
     color: var(--color-grey);
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 
   button {
@@ -26,4 +26,11 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 5rem;
+`;
+
+export const Error = styled.p`
+  color: var(--color-secondary) !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 `;

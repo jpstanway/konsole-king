@@ -5,7 +5,9 @@ import {
   UserReviewContainer,
   UserReviewDetails,
   UserReviewAvatar,
+  UserNameAndRating,
   UserReviewName,
+  UserRating,
   UserReviewDate,
   UserReviewText
 } from "./user-review.styles";
@@ -20,7 +22,10 @@ const UserReview = ({ review }) => {
       </UserReviewAvatar>
       <UserReviewTextBubble>
         <UserReviewDetails>
-          <UserReviewName>{review.name}</UserReviewName>
+          <UserNameAndRating>
+            <UserReviewName>{review.name}</UserReviewName>
+            <UserRating>{review.rating} out of 5</UserRating>
+          </UserNameAndRating>
           <UserReviewDate>{date.toLocaleString()}</UserReviewDate>
         </UserReviewDetails>
         <UserReviewText>{review.review}</UserReviewText>

@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
-import { ReviewForm } from "./user-review-form.styles";
+import {
+  ReviewForm,
+  RatingContainer,
+  RatingLabel,
+  Rating,
+  RatingSelection
+} from "./user-review-form.styles";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
@@ -12,7 +18,7 @@ class UserReviewForm extends Component {
     super(props);
     this.state = {
       name: "",
-      email: "",
+      rating: "",
       review: ""
     };
   }
@@ -26,22 +32,22 @@ class UserReviewForm extends Component {
   onSubmit = async e => {
     e.preventDefault();
 
-    const { name, email, review } = this.state;
+    const { name, rating, review } = this.state;
     const { item, categoryName } = this.props;
 
     const reviewObject = {
       name,
-      email,
+      rating,
       review,
       date: Date.now()
     };
 
-    updateItemReviews(categoryName, item, reviewObject);
-
     try {
+      await updateItemReviews(categoryName, item, reviewObject);
+
       this.setState({
         name: "",
-        email: "",
+        rating: "",
         review: ""
       });
     } catch (error) {
@@ -50,6 +56,8 @@ class UserReviewForm extends Component {
   };
 
   render() {
+    const { name, rating, review } = this.state;
+
     return (
       <ReviewForm onSubmit={this.onSubmit}>
         <FormInput
@@ -57,17 +65,32 @@ class UserReviewForm extends Component {
           type="text"
           name="name"
           onChange={this.handleChange}
+          value={name}
         />
-        <FormInput
-          label="Email"
-          type="email"
-          name="email"
-          onChange={this.handleChange}
-        />
+        <RatingContainer>
+          <RatingLabel htmlFor="rating">Rating</RatingLabel>
+          <Rating>
+            <RatingSelection
+              name="rating"
+              onChange={this.handleChange}
+              value={rating}
+              required
+            >
+              <option value="">---</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </RatingSelection>
+            <span>out of 5</span>
+          </Rating>
+        </RatingContainer>
         <FormInput
           label="Your Review"
           name="review"
           onChange={this.handleChange}
+          value={review}
           textarea
         />
         <CustomButton type="submit">Submit</CustomButton>
