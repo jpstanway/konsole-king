@@ -22,7 +22,7 @@ const MainSlider = () => (
       </SlideLink>
     </Slide>
     <Slide id="slide-two" slide={slideTwo}>
-      <SlideLink to="/">
+      <SlideLink to="/browse/vr">
         <CustomButton>Shop Now</CustomButton>
       </SlideLink>
     </Slide>

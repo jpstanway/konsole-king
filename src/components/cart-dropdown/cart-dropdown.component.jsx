@@ -6,7 +6,7 @@ const CartDropdown = () => (
   <CartContainer>
     <CartIcon className="fas fa-shopping-cart fa-3x"></CartIcon>
     <span>Your Cart:</span>
-    <CartTotal>$3219.00</CartTotal>
+    <CartTotal>$0.00</CartTotal>
   </CartContainer>
 );
 

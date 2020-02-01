@@ -26,7 +26,6 @@ export const MainMenuHeaderIcon = styled.i`
 `;
 
 export const MainMenuItem = styled.li`
-  padding: 1.5rem;
   color: var(--color-grey-dark);
   cursor: pointer;
 
@@ -55,6 +54,7 @@ export const MainMenuLink = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem;
 
   &:hover {
     color: inherit;

@@ -8,7 +8,7 @@ import {
 } from "./category-overview.styles";
 
 const CategoryOverview = ({ category: { banner, logo, platform } }) => (
-  <CategoryContainer to="/">
+  <CategoryContainer to="/browse">
     <CategoryImg src={banner} alt={platform} />
     <CategoryLogo src={logo} alt={platform} />
     <CategoryOverlay />

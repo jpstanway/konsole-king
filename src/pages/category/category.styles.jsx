@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { size, device } from "../../scripts/media";
 
 export const CategoryContainer = styled.div`
@@ -11,6 +12,7 @@ export const CategoryContainer = styled.div`
 
 export const CategoryTitle = styled.h2`
   color: var(--color-grey-dark);
+  margin-top: 2rem;
   margin-bottom: 5rem;
   text-transform: uppercase;
 `;
@@ -21,5 +23,14 @@ export const CategoryItems = styled.div`
 
   @media ${device.tablet} {
     justify-content: center;
+  }
+`;
+
+export const BackLink = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-right: 1rem;
   }
 `;

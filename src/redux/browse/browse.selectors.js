@@ -21,18 +21,27 @@ export const selectCategory = categoryUrlParam =>
     categories ? categories[categoryUrlParam] : null
   );
 
-// // select items in category
-// export const selectItem = (categoryUrlParam, itemUrlParam) =>
-//   createSelector(
-//     [selectCategory(categoryUrlParam)],
-//     category => console.log(category),
-//     category.items
-//       ? category.items.find(item => item.id === itemUrlParam)
-//       : null
-//   );
+// select all console categories with filter
+export const selectCustomCategory = filterValue =>
+  createSelector([selectCategories], categories => {
+    if (categories) {
+      let title = "All Consoles";
+      let items = [
+        ...categories["consoles"].items,
+        ...categories["legacy"].items,
+        ...categories["used"].items
+      ];
 
-// // select item by url parameter
-// export const selectItem = itemUrlParam =>
-//   createSelector([selectItems], items =>
-//     items ? items.find(item => item.id === itemUrlParam) : null
-//   );
+      if (filterValue) {
+        title = filterValue;
+        items = items.filter(item => item.consoleType === filterValue);
+      }
+
+      return {
+        title,
+        items
+      };
+    } else {
+      return null;
+    }
+  });

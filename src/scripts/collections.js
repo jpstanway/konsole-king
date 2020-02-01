@@ -8,6 +8,7 @@ export default {
         {
           id: 101,
           item: "PlayStation 3",
+          category: "consoles",
           consoleType: "home",
           company: "Sony",
           yearOfRelease: "2006",
@@ -26,6 +27,7 @@ export default {
         {
           id: 102,
           item: "PlayStation Vita",
+          category: "consoles",
           consoleType: "handheld",
           company: "Sony",
           yearOfRelease: "2012",
@@ -44,6 +46,7 @@ export default {
         {
           id: 103,
           item: "PlayStation 4",
+          category: "consoles",
           consoleType: "home",
           company: "Sony",
           yearOfRelease: "2013",
@@ -62,6 +65,7 @@ export default {
         {
           id: 104,
           item: "Xbox 360",
+          category: "consoles",
           consoleType: "home",
           company: "Microsoft",
           yearOfRelease: "2005",
@@ -80,6 +84,7 @@ export default {
         {
           id: 105,
           item: "Xbox One",
+          category: "consoles",
           consoleType: "home",
           company: "Microsoft",
           yearOfRelease: "2013",
@@ -98,6 +103,7 @@ export default {
         {
           id: 106,
           item: "Wii",
+          category: "consoles",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "2006",
@@ -116,6 +122,7 @@ export default {
         {
           id: 107,
           item: "Nintendo 3DS",
+          category: "consoles",
           consoleType: "handheld",
           company: "Nintendo",
           yearOfRelease: "2011",
@@ -134,6 +141,7 @@ export default {
         {
           id: 108,
           item: "Wii U",
+          category: "consoles",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "2012",
@@ -152,6 +160,7 @@ export default {
         {
           id: 109,
           item: "Nintendo Switch",
+          category: "consoles",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "2017",
@@ -170,6 +179,7 @@ export default {
         {
           id: 110,
           item: "Google Stadia",
+          category: "consoles",
           consoleType: "cloud",
           company: "Google",
           yearOfRelease: "2019",
@@ -194,6 +204,7 @@ export default {
         {
           id: 301,
           item: "PlayStation",
+          category: "legacy",
           consoleType: "home",
           company: "Sony",
           yearOfRelease: "1995",
@@ -212,6 +223,7 @@ export default {
         {
           id: 302,
           item: "PlayStation 2",
+          category: "legacy",
           consoleType: "home",
           company: "Sony",
           yearOfRelease: "2000",
@@ -230,6 +242,7 @@ export default {
         {
           id: 303,
           item: "PlayStation Portable",
+          category: "legacy",
           consoleType: "handheld",
           company: "Sony",
           yearOfRelease: "2005",
@@ -248,6 +261,7 @@ export default {
         {
           id: 304,
           item: "Xbox",
+          category: "legacy",
           consoleType: "home",
           company: "Microsoft",
           yearOfRelease: "2001",
@@ -266,6 +280,7 @@ export default {
         {
           id: 305,
           item: "NES",
+          category: "legacy",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "1985",
@@ -284,6 +299,7 @@ export default {
         {
           id: 306,
           item: "Game Boy",
+          category: "legacy",
           consoleType: "handheld",
           company: "Nintendo",
           yearOfRelease: "1989",
@@ -302,6 +318,7 @@ export default {
         {
           id: 307,
           item: "Super Nintendo",
+          category: "legacy",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "1991",
@@ -320,6 +337,7 @@ export default {
         {
           id: 308,
           item: "Nintendo 64",
+          category: "legacy",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "1996",
@@ -338,6 +356,7 @@ export default {
         {
           id: 309,
           item: "Game Boy Color",
+          category: "legacy",
           consoleType: "handheld",
           company: "Nintendo",
           yearOfRelease: "1998",
@@ -356,6 +375,7 @@ export default {
         {
           id: 310,
           item: "GameCube",
+          category: "legacy",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "2001",
@@ -374,6 +394,7 @@ export default {
         {
           id: 311,
           item: "Game Boy Advance",
+          category: "legacy",
           consoleType: "handheld",
           company: "Nintendo",
           yearOfRelease: "2001",
@@ -392,6 +413,7 @@ export default {
         {
           id: 312,
           item: "Nintendo DS",
+          category: "legacy",
           consoleType: "handheld",
           company: "Nintendo",
           yearOfRelease: "2004",
@@ -410,6 +432,7 @@ export default {
         {
           id: 313,
           item: "Master System",
+          category: "legacy",
           consoleType: "home",
           company: "Sega",
           yearOfRelease: "1986",
@@ -428,6 +451,7 @@ export default {
         {
           id: 314,
           item: "Genesis",
+          category: "legacy",
           consoleType: "home",
           company: "Sega",
           yearOfRelease: "1989",
@@ -446,6 +470,7 @@ export default {
         {
           id: 315,
           item: "Game Gear",
+          category: "legacy",
           consoleType: "handheld",
           company: "Sega",
           yearOfRelease: "1991",
@@ -464,6 +489,7 @@ export default {
         {
           id: 316,
           item: "Sega CD",
+          category: "legacy",
           consoleType: "home",
           company: "Sega",
           yearOfRelease: "1992",
@@ -482,6 +508,7 @@ export default {
         {
           id: 317,
           item: "32X",
+          category: "legacy",
           consoleType: "home",
           company: "Sega",
           yearOfRelease: "1994",
@@ -500,6 +527,7 @@ export default {
         {
           id: 318,
           item: "Sega Saturn",
+          category: "legacy",
           consoleType: "home",
           company: "Sega",
           yearOfRelease: "1995",
@@ -518,6 +546,7 @@ export default {
         {
           id: 319,
           item: "Dreamcast",
+          category: "legacy",
           consoleType: "home",
           company: "Sega",
           yearOfRelease: "1999",
@@ -536,6 +565,7 @@ export default {
         {
           id: 320,
           item: "Atari 2600",
+          category: "legacy",
           consoleType: "home",
           company: "Atari",
           yearOfRelease: "1977",
@@ -554,6 +584,7 @@ export default {
         {
           id: 321,
           item: "Atari 5200",
+          category: "legacy",
           consoleType: "home",
           company: "Atari",
           yearOfRelease: "1982",
@@ -572,6 +603,7 @@ export default {
         {
           id: 322,
           item: "Atari 7800",
+          category: "legacy",
           consoleType: "home",
           company: "Atari",
           yearOfRelease: "1986",
@@ -590,6 +622,7 @@ export default {
         {
           id: 323,
           item: "Atari Jaguar",
+          category: "legacy",
           consoleType: "home",
           company: "Atari",
           yearOfRelease: "1993",
@@ -608,6 +641,7 @@ export default {
         {
           id: 324,
           item: "Commodore 64",
+          category: "legacy",
           consoleType: "home",
           company: "Commodore",
           yearOfRelease: "1982",
@@ -626,6 +660,7 @@ export default {
         {
           id: 325,
           item: "3DO",
+          category: "legacy",
           consoleType: "home",
           company: "Panasonic",
           yearOfRelease: "1993",
@@ -650,6 +685,7 @@ export default {
         {
           id: 201,
           item: "PlayStation VR",
+          category: "vr",
           consoleType: "vr",
           company: "Sony",
           yearOfRelease: "2016",
@@ -668,6 +704,7 @@ export default {
         {
           id: 202,
           item: "Oculus Rift",
+          category: "vr",
           consoleType: "vr",
           company: "Facebook",
           yearOfRelease: "2016",
@@ -686,6 +723,7 @@ export default {
         {
           id: 203,
           item: "HTC Vive",
+          category: "vr",
           consoleType: "vr",
           company: "HTC",
           yearOfRelease: "2016",
@@ -710,6 +748,7 @@ export default {
         {
           id: 401,
           item: "Xbox One Controller",
+          category: "accessories",
           company: "Microsoft",
           price: "5999",
           imageUrl:
@@ -726,6 +765,7 @@ export default {
         {
           id: 402,
           item: "PlayStation 4 Controller",
+          category: "accessories",
           company: "Sony",
           price: "5999",
           imageUrl:
@@ -742,6 +782,7 @@ export default {
         {
           id: 403,
           item: "Nintendo Switch Pro Controller",
+          category: "accessories",
           company: "Nintendo",
           price: "5999",
           imageUrl:
@@ -758,6 +799,7 @@ export default {
         {
           id: 404,
           item: "Nintendo Switch JoyCons",
+          category: "accessories",
           company: "Nintendo",
           price: "4999",
           imageUrl:
@@ -774,6 +816,7 @@ export default {
         {
           id: 405,
           item: "PlayStation Move Controller",
+          category: "accessories",
           company: "Sony",
           price: "5999",
           imageUrl:
@@ -790,6 +833,7 @@ export default {
         {
           id: 406,
           item: "Oculus Touch Controllers",
+          category: "accessories",
           company: "Facebook",
           price: "19999",
           imageUrl:
@@ -806,6 +850,7 @@ export default {
         {
           id: 407,
           item: "PlayStation Camera",
+          category: "accessories",
           company: "Sony",
           price: "7999",
           imageUrl:
@@ -828,6 +873,7 @@ export default {
         {
           id: 501,
           item: "Action Max Stereo Headphones",
+          category: "audio",
           company: "Action Max",
           price: "4999",
           imageUrl:
@@ -843,6 +889,7 @@ export default {
         {
           id: 502,
           item: "Sony MDR CD580 Headphones",
+          category: "audio",
           company: "Sony",
           price: "12999",
           imageUrl:
@@ -858,6 +905,7 @@ export default {
         {
           id: 503,
           item: "Xbox 360 Headset",
+          category: "audio",
           company: "Microsoft",
           price: "2999",
           imageUrl:
@@ -879,7 +927,8 @@ export default {
       items: [
         {
           id: 601,
-          item: "PlayStation Vita",
+          item: "PlayStation Vita [USED]",
+          category: "used",
           consoleType: "handheld",
           company: "Sony",
           yearOfRelease: "2012",
@@ -897,7 +946,8 @@ export default {
         },
         {
           id: 602,
-          item: "PlayStation 4",
+          item: "PlayStation 4 [USED]",
+          category: "used",
           consoleType: "home",
           company: "Sony",
           yearOfRelease: "2013",
@@ -915,7 +965,8 @@ export default {
         },
         {
           id: 603,
-          item: "Xbox One",
+          item: "Xbox One [USED]",
+          category: "used",
           consoleType: "home",
           company: "Microsoft",
           yearOfRelease: "2013",
@@ -933,7 +984,8 @@ export default {
         },
         {
           id: 604,
-          item: "Nintendo Switch",
+          item: "Nintendo Switch [USED]",
+          category: "used",
           consoleType: "home",
           company: "Nintendo",
           yearOfRelease: "2017",
@@ -951,7 +1003,8 @@ export default {
         },
         {
           id: 605,
-          item: "Google Stadia",
+          item: "Google Stadia [USED]",
+          category: "used",
           consoleType: "cloud",
           company: "Google",
           yearOfRelease: "2019",
