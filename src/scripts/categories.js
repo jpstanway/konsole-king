@@ -14,31 +14,37 @@ import atariLogo from "../assets/atari-logo.png";
 export default [
   {
     platform: "playstation",
+    company: "Sony",
     banner: playStationBanner,
     logo: playStationLogo
   },
   {
     platform: "xbox",
+    company: "Microsoft",
     banner: xboxBanner,
     logo: xboxLogo
   },
   {
     platform: "nintendo",
+    company: "Nintendo",
     banner: nintendoBanner,
     logo: nintendoLogo
   },
   {
     platform: "stadia",
+    company: "Google",
     banner: stadiaBanner,
     logo: stadiaLogo
   },
   {
     platform: "sega",
+    company: "Sega",
     banner: segaBanner,
     logo: segaLogo
   },
   {
     platform: "atari",
+    company: "Atari",
     banner: atariBanner,
     logo: atariLogo
   }

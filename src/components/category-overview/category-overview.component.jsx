@@ -7,8 +7,10 @@ import {
   CategoryLogo
 } from "./category-overview.styles";
 
-const CategoryOverview = ({ category: { banner, logo, platform } }) => (
-  <CategoryContainer to="/browse">
+const CategoryOverview = ({
+  category: { banner, logo, platform, company }
+}) => (
+  <CategoryContainer to={`/browse/consoles?allConsoles=true&brand=${company}`}>
     <CategoryImg src={banner} alt={platform} />
     <CategoryLogo src={logo} alt={platform} />
     <CategoryOverlay />

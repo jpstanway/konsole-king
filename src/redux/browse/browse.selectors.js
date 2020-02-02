@@ -32,9 +32,23 @@ export const selectCustomCategory = filterValue =>
         ...categories["used"].items
       ];
 
-      if (filterValue) {
-        title = filterValue;
-        items = items.filter(item => item.consoleType === filterValue);
+      if (filterValue.filter) {
+        // select by filter value
+        title = filterValue.filter;
+        items = items.filter(item => item.consoleType === filterValue.filter);
+      } else if (filterValue.brand) {
+        // select by brand value
+        const categoryKeys = Object.keys(categories);
+
+        title = filterValue.brand;
+        items = categoryKeys.reduce((acc, curr) => {
+          return acc.concat(
+            categories[curr].items.filter(
+              item =>
+                item.company.toLowerCase() === filterValue.brand.toLowerCase()
+            )
+          );
+        }, []);
       }
 
       return {

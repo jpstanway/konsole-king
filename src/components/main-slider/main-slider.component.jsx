@@ -17,7 +17,7 @@ import CustomButton from "../custom-button/custom-button.component";
 const MainSlider = () => (
   <SliderContainer>
     <Slide id="slide-one" slide={slideOne}>
-      <SlideLink to="/">
+      <SlideLink to="/browse/consoles">
         <CustomButton>Shop Now</CustomButton>
       </SlideLink>
     </Slide>
