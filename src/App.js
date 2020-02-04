@@ -9,6 +9,7 @@ import Header from "./components/header/header.component";
 import Home from "./pages/home/home.component";
 import RegisterLogin from "./pages/register-login/register-login.component";
 import Browse from "./pages/browse/browse.component";
+import User from "./pages/user/user.component";
 import Footer from "./components/footer/footer.component";
 
 //import collections from "./scripts/collections";
@@ -59,6 +60,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/user" component={User} />
           <Route path="/browse" component={Browse} />
           <Route
             path="/register-login"

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const AccountActionsContainer = styled.ul`
+export const AccountLinksContainer = styled.ul`
   list-style: none;
   padding: 0;
   min-width: 10rem;
@@ -12,7 +12,7 @@ export const AccountActionsContainer = styled.ul`
   }
 `;
 
-export const AccountActionsLink = styled(Link)`
+export const AccountLinksLink = styled(Link)`
   display: flex;
   justify-content: space-around;
 `;

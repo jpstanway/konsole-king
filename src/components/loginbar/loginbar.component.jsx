@@ -26,11 +26,19 @@ const Loginbar = props => (
           <LoginItemLink to="/browse">Browse</LoginItemLink>
         </LoginItem>
         {props.currentUser ? (
-          <LoginItem>
-            <LoginItemLink to="/register-login" onClick={() => auth.signOut()}>
-              Logout
-            </LoginItemLink>
-          </LoginItem>
+          <>
+            <LoginItem>
+              <LoginItemLink to="/user">My Account</LoginItemLink>
+            </LoginItem>
+            <LoginItem>
+              <LoginItemLink
+                to="/register-login"
+                onClick={() => auth.signOut()}
+              >
+                Logout
+              </LoginItemLink>
+            </LoginItem>
+          </>
         ) : (
           <>
             <LoginItem>

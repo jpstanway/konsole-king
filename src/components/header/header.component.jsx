@@ -11,7 +11,7 @@ import {
 
 import Logo from "../logo/logo.component";
 import SearchBar from "../search-bar/search-bar.component";
-import AccountActions from "../account-actions/account-actions.component";
+import AccountLinks from "../account-links/account-links.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 const Header = () => (
@@ -31,7 +31,7 @@ const Header = () => (
         <SearchBar />
       </ContactAndSearchContainer>
       <PurchaseContainer>
-        <AccountActions />
+        <AccountLinks />
         <CartDropdown />
       </PurchaseContainer>
     </Navbar>

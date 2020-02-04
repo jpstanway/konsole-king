@@ -27,10 +27,14 @@ export const createUserProfileDocument = async userAuth => {
   if (!snapShot.exists) {
     const { email } = userAuth;
     const createdAt = new Date();
+    const wishlist = [],
+      orderHistory = [];
 
     try {
       await userRef.set({
         email,
+        wishlist,
+        orderHistory,
         createdAt
       });
     } catch (error) {
@@ -107,6 +111,33 @@ export const convertCategoriesSnapshotToMap = categories => {
     return acc;
   }, {});
 };
+
+// update order history or wishlist
+export const updateOrderHistoryAndWishlist = async (
+  userId,
+  wishlistItem,
+  orderItems
+) => {
+  try {
+    const userRef = await firestore.collection("users").doc(userId);
+
+    if (wishlistItem) {
+      // get users wishlist and add new item
+      let wishlist = await userRef.data().wishlist;
+      wishlist = [...wishlist, wishlistItem];
+      userRef.update({ wishlist });
+    } else if (orderItems) {
+      // get users order history
+      let orders = await userRef.data().orderHistory;
+      orders = [...orders, ...orderItems];
+      userRef.update({ orders });
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// remove item from wishlist
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
