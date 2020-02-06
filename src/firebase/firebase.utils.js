@@ -121,16 +121,30 @@ export const updateOrderHistoryAndWishlist = async (
   try {
     const userRef = await firestore.collection("users").doc(userId);
 
+    if (!userRef) {
+      alert("You must be logged in");
+      return false;
+    }
+
     if (wishlistItem) {
       // get users wishlist and add new item
-      let wishlist = await userRef.data().wishlist;
+      let wishlist = await userRef.get();
+      wishlist = wishlist.data().wishlist;
+      // first check if item already exists in wishlist
+      const itemExists = wishlist.find(item => item.id === wishlistItem.id);
+
+      if (itemExists) {
+        alert("Item already exists in wishlist");
+        return false;
+      }
+
       wishlist = [...wishlist, wishlistItem];
-      userRef.update({ wishlist });
+      return userRef.update({ wishlist });
     } else if (orderItems) {
       // get users order history
       let orders = await userRef.data().orderHistory;
       orders = [...orders, ...orderItems];
-      userRef.update({ orders });
+      return userRef.update({ orders });
     }
   } catch (err) {
     console.error(err);
@@ -138,6 +152,23 @@ export const updateOrderHistoryAndWishlist = async (
 };
 
 // remove item from wishlist
+export const removeItemFromWishlist = async (userId, wishlistItem) => {
+  const userRef = await firestore.collection("users").doc(userId);
+
+  if (!userRef) {
+    alert("You must be logged in");
+    return false;
+  }
+
+  // retrieve users wishlist
+  let wishlist = await userRef.get();
+  wishlist = await wishlist.data().wishlist;
+
+  // filter out item to be removed
+  wishlist = wishlist.filter(item => item.id !== wishlistItem.id);
+
+  userRef.update({ wishlist });
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

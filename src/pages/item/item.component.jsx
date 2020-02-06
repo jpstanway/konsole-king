@@ -16,13 +16,14 @@ import {
 } from "./item.styles";
 
 import { selectCategory } from "../../redux/browse/browse.selectors";
+import { updateOrderHistoryAndWishlist } from "../../firebase/firebase.utils";
 
 import CustomButton from "../../components/custom-button/custom-button.component";
 import QuantitySelector from "../../components/quantity-selector/quantity-selector.component";
 import TabbedContainer from "../../components/tabbed-container/tabbed-container.component";
 import UserReviewForm from "../../components/user-review-form/user-review-form.component";
 
-const Item = ({ match, category }) => {
+const Item = ({ match, category, currentUser }) => {
   const item = category.items.find(
     item => Number(match.params.itemId) === item.id
   );
@@ -38,7 +39,10 @@ const Item = ({ match, category }) => {
         </ItemAvailability>
         <ItemName>{item.item}</ItemName>
         <ItemBrand>{item.company}</ItemBrand>
-        <CustomButton btnLink>
+        <CustomButton
+          onClick={() => updateOrderHistoryAndWishlist(currentUser.id, item)}
+          btnLink
+        >
           <i className="fas fa-heart"></i> Add To Wishlist
         </CustomButton>
         <ItemSummary>
@@ -62,7 +66,8 @@ const Item = ({ match, category }) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  category: selectCategory(ownProps.match.params.categoryId)(state)
+  category: selectCategory(ownProps.match.params.categoryId)(state),
+  currentUser: state.user.currentUser
 });
 
 export default connect(mapStateToProps)(Item);

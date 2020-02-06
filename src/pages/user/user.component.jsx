@@ -22,8 +22,8 @@ class User extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.currentUser.hasOwnProperty("wishlist") &&
-      this.props.currentUser !== prevProps.currentUser
+      this.props.currentUser !== prevProps.currentUser &&
+      this.props.currentUser.hasOwnProperty("wishlist")
     ) {
       this.setState({ loading: false });
     }

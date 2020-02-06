@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export const OptionsContainer = styled.div`
   display: flex;
+  padding: 0rem 2rem;
+  width: 100%;
 `;
 
 export const OptionButton = styled(Link)`

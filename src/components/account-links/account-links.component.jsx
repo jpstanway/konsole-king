@@ -1,15 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import {
   AccountLinksContainer,
   AccountLinksLink
 } from "./account-links.styles";
 
-const AccountLinks = () => (
+const AccountLinks = ({ currentUser }) => (
   <AccountLinksContainer>
     <li>
       <AccountLinksLink to="/user/wishlist">
-        <i className="fas fa-heart"></i> Wishlist(0)
+        <i className="fas fa-heart"></i> Wishlist(
+        {currentUser && currentUser.wishlist
+          ? currentUser.wishlist.length
+          : "0"}
+        )
       </AccountLinksLink>
     </li>
     <li>
@@ -20,4 +25,8 @@ const AccountLinks = () => (
   </AccountLinksContainer>
 );
 
-export default AccountLinks;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(AccountLinks);
