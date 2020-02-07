@@ -5,11 +5,10 @@ export const SelectorContainer = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
-export const SelectorValue = styled.span`
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+export const SelectorValue = styled.input`
   font-size: 1.8rem;
+  text-align: center;
+  width: 5rem;
 `;
 
 export const SelectorButton = styled.button`

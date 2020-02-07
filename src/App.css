@@ -30,6 +30,12 @@ select:active {
   top: 4rem !important;
 }
 
+/* cart dropdown */
+.cart-toggle {
+  display: block !important;
+  top: 6rem !important;
+}
+
 /* main slider */
 .slider-active {
   opacity: 100% !important;

@@ -14,9 +14,10 @@ import {
 
 import CustomButton from "../custom-button/custom-button.component";
 
+import { addItem } from "../../redux/cart/cart.actions";
 import { updateOrderHistoryAndWishlist } from "../../firebase/firebase.utils";
 
-const ProductCard = ({ item, categoryId, currentUser }) => (
+const ProductCard = ({ item, categoryId, currentUser, cart, addItem }) => (
   <CardContainer>
     <CardInfoContainer>
       <CardProductImage src={item.imageUrl} alt="product" />
@@ -28,7 +29,7 @@ const ProductCard = ({ item, categoryId, currentUser }) => (
       <CardProductPrice>${Number(item.price) / 100}</CardProductPrice>
     </CardInfoContainer>
     <CardPurchaseContainer>
-      <CustomButton>Add To Cart</CustomButton>
+      <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
       <CustomButton
         onClick={() => updateOrderHistoryAndWishlist(currentUser.id, item)}
         btnLink
@@ -40,7 +41,8 @@ const ProductCard = ({ item, categoryId, currentUser }) => (
 );
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser,
+  cart: state.cart.cartItems
 });
 
-export default connect(mapStateToProps)(ProductCard);
+export default connect(mapStateToProps, { addItem })(ProductCard);

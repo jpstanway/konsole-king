@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "../../scripts/mobile-menu";
+import "../../scripts/dropdown";
 
 import { auth } from "../../firebase/firebase.utils";
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import {
@@ -17,13 +17,15 @@ import {
 
 import { selectCategory } from "../../redux/browse/browse.selectors";
 import { updateOrderHistoryAndWishlist } from "../../firebase/firebase.utils";
+import { addItem } from "../../redux/cart/cart.actions";
 
 import CustomButton from "../../components/custom-button/custom-button.component";
 import QuantitySelector from "../../components/quantity-selector/quantity-selector.component";
 import TabbedContainer from "../../components/tabbed-container/tabbed-container.component";
 import UserReviewForm from "../../components/user-review-form/user-review-form.component";
 
-const Item = ({ match, category, currentUser }) => {
+const Item = ({ match, category, currentUser, addItem }) => {
+  const [quantity, setQuantity] = useState(1);
   const item = category.items.find(
     item => Number(match.params.itemId) === item.id
   );
@@ -52,8 +54,10 @@ const Item = ({ match, category, currentUser }) => {
         </ItemSummary>
         <ItemPrice>${Number(item.price) / 100}</ItemPrice>
         <ItemCartControls>
-          <QuantitySelector />
-          <CustomButton>Add To Cart</CustomButton>
+          <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+          <CustomButton onClick={() => addItem(item, quantity)}>
+            Add To Cart
+          </CustomButton>
         </ItemCartControls>
       </ItemPurchaseContainer>
       <ItemSpecifications>
@@ -70,4 +74,4 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(mapStateToProps)(Item);
+export default connect(mapStateToProps, { addItem })(Item);

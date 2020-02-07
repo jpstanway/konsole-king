@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   SelectorContainer,
@@ -6,8 +6,10 @@ import {
   SelectorButton
 } from "./quantity-selector.styles";
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState(1);
+const QuantitySelector = ({ quantity, setQuantity }) => {
+  if (quantity < 1 || quantity > 99) {
+    setQuantity(1);
+  }
 
   const increment = () => {
     if (quantity < 99) {
@@ -16,7 +18,7 @@ const QuantitySelector = () => {
   };
 
   const decrement = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
@@ -24,7 +26,11 @@ const QuantitySelector = () => {
   return (
     <SelectorContainer>
       <SelectorButton onClick={decrement}>-</SelectorButton>
-      <SelectorValue>{quantity}</SelectorValue>
+      <SelectorValue
+        type="text"
+        value={quantity}
+        onChange={e => setQuantity(Number(e.target.value))}
+      />
       <SelectorButton onClick={increment}>+</SelectorButton>
     </SelectorContainer>
   );
