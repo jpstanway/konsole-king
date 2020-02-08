@@ -10,6 +10,7 @@ import Home from "./pages/home/home.component";
 import RegisterLogin from "./pages/register-login/register-login.component";
 import Browse from "./pages/browse/browse.component";
 import User from "./pages/user/user.component";
+import Checkout from "./pages/checkout/checkout.component";
 import Footer from "./components/footer/footer.component";
 
 //import collections from "./scripts/collections";
@@ -68,6 +69,7 @@ class App extends Component {
               this.props.currentUser ? <Redirect to="/" /> : <RegisterLogin />
             }
           />
+          <Route path="/checkout" component={Checkout} />
         </Switch>
         <Footer />
       </div>
