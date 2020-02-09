@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 export const CardContainer = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 25% 1fr 25%;
   margin-right: 5px;
   margin-bottom: 2rem;
   padding: 1rem;
@@ -39,6 +38,7 @@ export const CardProductPrice = styled.p`
 
 export const CardProductImage = styled.img`
   height: 10rem;
+  margin: auto;
 `;
 
 export const CardPurchaseContainer = styled.div`

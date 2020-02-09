@@ -20,7 +20,7 @@ export const CartItemInfo = styled.div`
 
 export const CartItemImage = styled.img`
   height: 4rem;
-  margin: auto 0;
+  margin: auto;
 `;
 
 export const CartItemTitle = styled(Link)`

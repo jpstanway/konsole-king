@@ -1,8 +1,13 @@
 import { CartActionTypes } from "./cart.types";
-import { addItemToCart, removeItemFromCart } from "./cart.utils";
+import {
+  addItemToCart,
+  removeItemFromCart,
+  updateCartTotal
+} from "./cart.utils";
 
 const initialState = {
-  cartItems: []
+  cartItems: [],
+  cartTotal: 0
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -27,6 +32,11 @@ const cartReducer = (state = initialState, action) => {
         cartItems: state.cartItems.filter(
           cartItem => cartItem.id !== action.payload.id
         )
+      };
+    case CartActionTypes.UPDATE_TOTAL:
+      return {
+        ...state,
+        cartTotal: updateCartTotal(action.payload)
       };
     default:
       return state;

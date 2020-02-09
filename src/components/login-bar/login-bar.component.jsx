@@ -13,7 +13,7 @@ import {
   LoginItemLink,
   MobileLoginMenu,
   MobileLoginButton
-} from "./loginbar.styles";
+} from "./login-bar.styles";
 
 const Loginbar = props => (
   <LoginbarContainer>

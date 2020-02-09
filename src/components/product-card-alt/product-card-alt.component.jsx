@@ -11,10 +11,18 @@ import {
 } from "./product-card-alt.styles";
 
 import { removeItemFromWishlist } from "../../firebase/firebase.utils";
+import { addItem, removeItem } from "../../redux/cart/cart.actions";
 
 import CustomButton from "../custom-button/custom-button.component";
 
-const ProductCardAlt = ({ item, categoryId, currentUser }) => (
+const ProductCardAlt = ({
+  item,
+  categoryId,
+  currentUser,
+  addItem,
+  removeItem,
+  checkoutCard
+}) => (
   <CardContainer>
     <CardProductImage src={item.imageUrl} alt="product" />
     <CardInfoContainer>
@@ -24,9 +32,17 @@ const ProductCardAlt = ({ item, categoryId, currentUser }) => (
       <CardProductPrice>${Number(item.price) / 100}</CardProductPrice>
     </CardInfoContainer>
     <CardPurchaseContainer>
-      <CustomButton>Add To Cart</CustomButton>
+      {checkoutCard ? (
+        <p>Quantity: {item.quantity}</p>
+      ) : (
+        <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
+      )}
       <CustomButton
-        onClick={() => removeItemFromWishlist(currentUser.id, item)}
+        onClick={() =>
+          checkoutCard
+            ? removeItem(item)
+            : removeItemFromWishlist(currentUser.id, item)
+        }
         btnLink
       >
         <i className="fas fa-window-close"></i> Remove
@@ -39,4 +55,6 @@ const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(mapStateToProps)(ProductCardAlt);
+export default connect(mapStateToProps, { addItem, removeItem })(
+  ProductCardAlt
+);

@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 
 import "./App.css";
 
-import Loginbar from "./components/loginbar/loginbar.component";
+import LoginBar from "./components/login-bar/login-bar.component";
 import Header from "./components/header/header.component";
 import Home from "./pages/home/home.component";
 import RegisterLogin from "./pages/register-login/register-login.component";
 import Browse from "./pages/browse/browse.component";
 import User from "./pages/user/user.component";
+import Cart from "./pages/cart/cart.component";
 import Checkout from "./pages/checkout/checkout.component";
 import Footer from "./components/footer/footer.component";
 
@@ -57,19 +58,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Loginbar />
+        <LoginBar />
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/user" component={User} />
           <Route path="/browse" component={Browse} />
+          <Route path="/cart" component={Cart} />
           <Route
             path="/register-login"
             render={() =>
               this.props.currentUser ? <Redirect to="/" /> : <RegisterLogin />
             }
           />
-          <Route path="/checkout" component={Checkout} />
+          <Route
+            exact
+            path="/checkout"
+            render={() =>
+              this.props.currentUser ? (
+                <Checkout />
+              ) : (
+                <Redirect to="/register-login" />
+              )
+            }
+          />
         </Switch>
         <Footer />
       </div>

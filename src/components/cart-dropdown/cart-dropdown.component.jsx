@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 import {
@@ -13,37 +14,42 @@ import {
 import CustomButton from "../custom-button/custom-button.component";
 import CartItem from "../cart-item/cart-item.component";
 
-import { selectCartItems } from "../../redux/cart/cart.selectors";
+import {
+  selectCartItems,
+  selectCartTotal
+} from "../../redux/cart/cart.selectors";
+import { updateTotal } from "../../redux/cart/cart.actions";
 
-const CartDropdown = ({ cart }) => {
-  let cartTotal;
-  if (cart.length > 0) {
-    cartTotal = cart.reduce(
-      (acc, curr) => (acc += Number(curr.price) * curr.quantity),
-      0
-    );
-  }
+const CartDropdown = ({ cartItems, cartTotal, updateTotal }) => {
+  useEffect(() => {
+    updateTotal(cartItems);
+  }, [cartItems, updateTotal]);
 
   return (
     <CartContainer>
       <CartIcon id="cart-btn" className="fas fa-shopping-cart fa-3x"></CartIcon>
       <span>Your Cart:</span>
-      <CartTotal>${cartTotal ? cartTotal / 100 : "0.00"}</CartTotal>
+      <CartTotal>${cartTotal / 100}</CartTotal>
 
       <Cart id="cart">
-        {cart.length > 0 ? (
-          cart.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)
+        {cartItems.length > 0 ? (
+          cartItems.map(cartItem => (
+            <CartItem key={cartItem.id} item={cartItem} />
+          ))
         ) : (
           <CartMessage>Cart is empty</CartMessage>
         )}
-        <CustomButton className="checkout">Checkout</CustomButton>
+        <Link to="/cart">
+          <CustomButton className="checkout">Checkout</CustomButton>
+        </Link>
       </Cart>
     </CartContainer>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  cart: selectCartItems
+  cartItems: selectCartItems,
+  cartTotal: selectCartTotal
 });
 
-export default connect(mapStateToProps)(CartDropdown);
+export default connect(mapStateToProps, { updateTotal })(CartDropdown);

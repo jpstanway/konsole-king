@@ -39,6 +39,7 @@ export const ContactAndSearchContainer = styled.div`
 export const ContactList = styled.ul`
   list-style-type: none;
   padding: 0;
+  margin: 1rem;
   display: flex;
 
   @media ${device.laptop} {

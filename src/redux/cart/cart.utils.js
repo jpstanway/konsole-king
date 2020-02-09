@@ -37,3 +37,10 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
       : cartItem
   );
 };
+
+export const updateCartTotal = cart => {
+  return cart.reduce(
+    (acc, curr) => (acc += Number(curr.price) * curr.quantity),
+    0
+  );
+};

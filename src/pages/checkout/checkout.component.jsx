@@ -1,10 +1,12 @@
 import React from "react";
 
-import { CheckoutPage, CheckoutTitle } from "./checkout.styles";
+import { CheckoutPage } from "./checkout.styles";
+
+import CheckoutForm from "../../components/checkout-form/checkout-form.component";
 
 const Checkout = () => (
   <CheckoutPage>
-    <CheckoutTitle>Checkout</CheckoutTitle>
+    <CheckoutForm />
   </CheckoutPage>
 );
 
