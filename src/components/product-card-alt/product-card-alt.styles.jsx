@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
   margin-bottom: 2rem;
   padding: 1rem;
   position: relative;
-  width: 70%;
+  width: 100%;
 
   &:hover {
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -46,5 +46,4 @@ export const CardPurchaseContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  width: 27rem;
 `;

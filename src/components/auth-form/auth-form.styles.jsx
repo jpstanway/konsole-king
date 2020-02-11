@@ -21,7 +21,7 @@ export const AuthFormContainer = styled.div`
 `;
 
 export const Form = styled.form`
-  height: 30rem;
+  min-height: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
