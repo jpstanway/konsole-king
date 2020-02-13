@@ -15,7 +15,7 @@ const CheckoutItems = ({ items, removeItem }) => (
   <CheckoutItemsTable>
     <tbody>
       {items.map(item => (
-        <tr>
+        <tr key={item.id}>
           <CheckoutItemData>
             <CheckoutItemImg src={item.imageUrl} alt="product" />
           </CheckoutItemData>

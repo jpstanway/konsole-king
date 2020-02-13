@@ -1,0 +1,31 @@
+.MyCardElement {
+  height: 40px;
+  padding: 10px 12px;
+  width: 100%;
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 0.5rem 0rem 2rem 0rem;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.MyCardElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.MyCardElement--invalid {
+  border-color: #fa755a;
+}
+
+.MyCardElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.test-card {
+  color: var(--color-secondary);
+  font-style: italic;
+}

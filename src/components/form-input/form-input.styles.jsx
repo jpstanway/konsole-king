@@ -13,7 +13,7 @@ export const Input = styled.input`
   border: 0;
   padding-left: 1rem;
   font-size: 1.8rem;
-  margin-bottom: 5px;
+  margin-bottom: 2rem;
 `;
 
 export const TextArea = styled.textarea`

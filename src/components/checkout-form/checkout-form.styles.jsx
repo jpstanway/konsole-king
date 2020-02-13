@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const CheckoutFormElement = styled.form`
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+`;
+
 export const CheckoutFormExtra = styled.div`
   display: flex;
   justify-content: space-between;

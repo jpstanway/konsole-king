@@ -7,12 +7,15 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
+import { StripeProvider } from "react-stripe-elements";
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <PersistGate persistor={persistor}>
-        <App />
+        <StripeProvider apiKey="pk_test_bSdKOToQTuoSw6XwXeWAnwgK00YqS4HLHL">
+          <App />
+        </StripeProvider>
       </PersistGate>
     </BrowserRouter>
   </Provider>,
