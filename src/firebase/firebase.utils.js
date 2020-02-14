@@ -45,9 +45,6 @@ export const createUserProfileDocument = async userAuth => {
   return userRef;
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
 // create category and add multiple items
 export const addCategoryAndDocs = async (categoryKey, itemsToAdd) => {
   const categoryRef = firestore.collection(categoryKey);
@@ -59,6 +56,32 @@ export const addCategoryAndDocs = async (categoryKey, itemsToAdd) => {
   });
 
   return await batch.commit();
+};
+
+// create new order
+export const createNewOrderDocument = async (order, total, currentUser) => {
+  const newOrderRef = firestore.collection("orders").doc();
+  const userRef = firestore.collection("users").doc(currentUser.id);
+  const createdAt = new Date();
+
+  try {
+    await newOrderRef.set({
+      order,
+      total,
+      userId: currentUser.id,
+      createdAt
+    });
+
+    // update users order history
+    let orderHistory = await userRef.get();
+    orderHistory = orderHistory.data().orderHistory;
+    orderHistory = [...orderHistory, { order, total, createdAt }];
+    await userRef.update({ orderHistory });
+  } catch (error) {
+    console.log("error creating order", error.message);
+  }
+
+  return newOrderRef;
 };
 
 // add review
@@ -88,10 +111,6 @@ export const updateItemReviews = async (category, itemObj, review) => {
   }
 };
 
-// edit review
-
-// delete review
-
 // convert categories snapshot to mappable object
 export const convertCategoriesSnapshotToMap = categories => {
   const convertedCategory = categories.docs.map(doc => {
@@ -112,12 +131,8 @@ export const convertCategoriesSnapshotToMap = categories => {
   }, {});
 };
 
-// update order history or wishlist
-export const updateOrderHistoryAndWishlist = async (
-  userId,
-  wishlistItem,
-  orderItems
-) => {
+// update user wishlist
+export const updateUserWishlist = async (userId, wishlistItem, orderItems) => {
   try {
     const userRef = await firestore.collection("users").doc(userId);
 
@@ -126,26 +141,19 @@ export const updateOrderHistoryAndWishlist = async (
       return false;
     }
 
-    if (wishlistItem) {
-      // get users wishlist and add new item
-      let wishlist = await userRef.get();
-      wishlist = wishlist.data().wishlist;
-      // first check if item already exists in wishlist
-      const itemExists = wishlist.find(item => item.id === wishlistItem.id);
+    // get users wishlist and add new item
+    let wishlist = await userRef.get();
+    wishlist = wishlist.data().wishlist;
+    // first check if item already exists in wishlist
+    const itemExists = wishlist.find(item => item.id === wishlistItem.id);
 
-      if (itemExists) {
-        alert("Item already exists in wishlist");
-        return false;
-      }
-
-      wishlist = [...wishlist, wishlistItem];
-      return userRef.update({ wishlist });
-    } else if (orderItems) {
-      // get users order history
-      let orders = await userRef.data().orderHistory;
-      orders = [...orders, ...orderItems];
-      return userRef.update({ orders });
+    if (itemExists) {
+      alert("Item already exists in wishlist");
+      return false;
     }
+
+    wishlist = [...wishlist, wishlistItem];
+    return userRef.update({ wishlist });
   } catch (err) {
     console.error(err);
   }
@@ -169,6 +177,9 @@ export const removeItemFromWishlist = async (userId, wishlistItem) => {
 
   userRef.update({ wishlist });
 };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

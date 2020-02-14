@@ -15,7 +15,7 @@ import {
 import CustomButton from "../custom-button/custom-button.component";
 
 import { addItem } from "../../redux/cart/cart.actions";
-import { updateOrderHistoryAndWishlist } from "../../firebase/firebase.utils";
+import { updateUserWishlist } from "../../firebase/firebase.utils";
 
 const ProductCard = ({ item, categoryId, currentUser, cart, addItem }) => (
   <CardContainer>
@@ -31,7 +31,7 @@ const ProductCard = ({ item, categoryId, currentUser, cart, addItem }) => (
     <CardPurchaseContainer>
       <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
       <CustomButton
-        onClick={() => updateOrderHistoryAndWishlist(currentUser.id, item)}
+        onClick={() => updateUserWishlist(currentUser.id, item)}
         btnLink
       >
         <i className="fas fa-heart"></i> Add To Wishlist

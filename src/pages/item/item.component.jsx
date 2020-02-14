@@ -16,7 +16,7 @@ import {
 } from "./item.styles";
 
 import { selectCategory } from "../../redux/browse/browse.selectors";
-import { updateOrderHistoryAndWishlist } from "../../firebase/firebase.utils";
+import { updateUserWishlist } from "../../firebase/firebase.utils";
 import { addItem } from "../../redux/cart/cart.actions";
 
 import CustomButton from "../../components/custom-button/custom-button.component";
@@ -42,7 +42,7 @@ const Item = ({ match, category, currentUser, addItem }) => {
         <ItemName>{item.item}</ItemName>
         <ItemBrand>{item.company}</ItemBrand>
         <CustomButton
-          onClick={() => updateOrderHistoryAndWishlist(currentUser.id, item)}
+          onClick={() => updateUserWishlist(currentUser.id, item)}
           btnLink
         >
           <i className="fas fa-heart"></i> Add To Wishlist

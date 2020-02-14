@@ -21,7 +21,11 @@ const Checkout = ({ cartItems, cartTotal, currentUser }) => (
     <CheckoutItems items={cartItems} />
     <div>&nbsp;</div>
     <Elements>
-      <CheckoutForm currentUser={currentUser} cartTotal={cartTotal} />
+      <CheckoutForm
+        currentUser={currentUser}
+        cartItems={cartItems}
+        cartTotal={cartTotal}
+      />
     </Elements>
     <CheckoutSummary cartTotal={cartTotal} />
   </CheckoutPage>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { injectStripe } from "react-stripe-elements";
 import axios from "axios";
@@ -8,6 +9,9 @@ import { CheckoutFormElement, CheckoutFormExtra } from "./checkout-form.styles";
 import CustomButton from "../custom-button/custom-button.component";
 import FormInput from "../form-input/form-input.component";
 import StripeInput from "../stripe-input/stripe-input.component";
+
+import { createNewOrderDocument } from "../../firebase/firebase.utils";
+import { resetCart } from "../../redux/cart/cart.actions";
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -31,7 +35,7 @@ class CheckoutForm extends Component {
   onSubmit = async e => {
     e.preventDefault();
 
-    const { currentUser, cartTotal } = this.props;
+    const { currentUser, cartItems, cartTotal, resetCart } = this.props;
 
     const response = await axios.get(`/secret/${cartTotal}`);
     const { client_secret: clientSecret } = response.data;
@@ -47,7 +51,9 @@ class CheckoutForm extends Component {
 
     if (payment.paymentIntent.status === "succeeded") {
       // create order object and save to firebase
-
+      createNewOrderDocument(cartItems, cartTotal, currentUser);
+      // clear cart
+      resetCart();
       // redirect to user's order history or homepage
       this.props.history.push("/");
     } else {
@@ -113,4 +119,6 @@ class CheckoutForm extends Component {
   }
 }
 
-export default withRouter(injectStripe(CheckoutForm));
+export default connect(null, { resetCart })(
+  withRouter(injectStripe(CheckoutForm))
+);
