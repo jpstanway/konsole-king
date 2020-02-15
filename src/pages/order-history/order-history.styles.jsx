@@ -7,3 +7,8 @@ export const OrderHistoryPage = styled.div`
   max-width: ${size.laptopM};
   margin: auto;
 `;
+
+export const OrderHistoryTitle = styled.h1`
+  color: var(--color-grey-dark);
+  margin-bottom: 5rem;
+`;
