@@ -9,6 +9,8 @@ import {
   MainMenuLink
 } from "./main-menu.styles";
 
+import customLinks from "../../scripts/custom-links";
+
 const MainMenu = () => (
   <MainMenuContainer>
     <MainMenuHeader>
@@ -16,55 +18,55 @@ const MainMenu = () => (
       Categories
     </MainMenuHeader>
     <MainMenuItem>
-      <MainMenuLink to="/browse/consoles?allConsoles=true">
+      <MainMenuLink to={`/browse/${customLinks["all-consoles"]}`}>
         All consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/consoles?allConsoles=true&filter=home">
+      <MainMenuLink to={`/browse/${customLinks["home-consoles"]}`}>
         Home consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/consoles?allConsoles=true&filter=handheld">
+      <MainMenuLink to={`/browse/${customLinks["handheld-consoles"]}`}>
         Handheld consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/consoles?allConsoles=true&filter=cloud">
+      <MainMenuLink to={`/browse/${customLinks["cloud-consoles"]}`}>
         Cloud consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/legacy">
+      <MainMenuLink to={`/browse/${customLinks["legacy"]}`}>
         Legacy consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/vr">
+      <MainMenuLink to={`/browse/${customLinks["vr"]}`}>
         VR headsets
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/accessories">
+      <MainMenuLink to={`/browse/${customLinks["accessories"]}`}>
         Accessories
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/audio">
+      <MainMenuLink to={`/browse/${customLinks["audio"]}`}>
         Audio
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to="/browse/used">
+      <MainMenuLink to={`/browse/${customLinks["used"]}`}>
         Used
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>

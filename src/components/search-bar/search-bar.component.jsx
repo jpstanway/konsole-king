@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 
 import {
   SearchContainer,
@@ -7,16 +8,36 @@ import {
   SearchButton
 } from "./search-bar.styles";
 
-const SearchBar = () => {
+import customLinks from "../../scripts/custom-links.js";
+
+const SearchBar = ({ history }) => {
+  const [searchValue, setSearchValue] = useState("");
+  const [searchFilter, setSearchFilter] = useState("all");
+
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("Searching for item...");
+
+    const link = customLinks[searchFilter]
+      ? `/browse/${customLinks[searchFilter]}`
+      : "/browse";
+
+    // search inventory for keyword
+    history.push(link, { searchValue });
   };
 
   return (
-    <SearchContainer onClick={handleSubmit}>
-      <SearchInput placeholder="Search for item" />
-      <SearchDropdown>
+    <SearchContainer onSubmit={handleSubmit}>
+      <SearchInput
+        onChange={e => setSearchValue(e.target.value)}
+        value={searchValue}
+        name="searchValue"
+        placeholder="Search for item"
+      />
+      <SearchDropdown
+        onChange={e => setSearchFilter(e.target.value)}
+        value={searchFilter}
+        name="searchFilter"
+      >
         <option value="">All categories</option>
         <option value="all-consoles">All consoles</option>
         <option value="home-consoles">Home</option>
@@ -35,4 +56,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default withRouter(SearchBar);

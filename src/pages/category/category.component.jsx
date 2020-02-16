@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import queryString from "query-string";
 
@@ -16,20 +16,36 @@ import {
   BackLink
 } from "./category.styles";
 
-const Category = ({ category }) => (
-  <CategoryContainer>
-    <BackLink to="/browse">
-      <i className="fas fa-chevron-left"></i>
-      <span>back</span>
-    </BackLink>
-    <CategoryTitle>{category.title.toUpperCase()}</CategoryTitle>
-    <CategoryItems>
-      {category.items.map(item => (
-        <ProductCard key={item.id} item={item} categoryId={item.category} />
-      ))}
-    </CategoryItems>
-  </CategoryContainer>
-);
+const Category = ({ category, location }) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    if (location.state) {
+      setSearchValue(location.state.searchValue.toLowerCase());
+    }
+  }, [location, setSearchValue]);
+
+  return (
+    <CategoryContainer>
+      <BackLink to="/browse">
+        <i className="fas fa-chevron-left"></i>
+        <span>back</span>
+      </BackLink>
+      <CategoryTitle>{category.title.toUpperCase()}</CategoryTitle>
+      <CategoryItems>
+        {category.items
+          .filter(
+            item =>
+              item.item.toLowerCase().includes(searchValue) ||
+              item.company.toLowerCase().includes(searchValue)
+          )
+          .map(item => (
+            <ProductCard key={item.id} item={item} categoryId={item.category} />
+          ))}
+      </CategoryItems>
+    </CategoryContainer>
+  );
+};
 
 const mapStateToProps = (state, ownProps) => {
   let selection;
