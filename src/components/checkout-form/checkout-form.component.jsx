@@ -12,6 +12,7 @@ import StripeInput from "../stripe-input/stripe-input.component";
 
 import { createNewOrderDocument } from "../../firebase/firebase.utils";
 import { resetCart } from "../../redux/cart/cart.actions";
+import { showNotification } from "../../redux/notification/notification.actions";
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -35,7 +36,13 @@ class CheckoutForm extends Component {
   onSubmit = async e => {
     e.preventDefault();
 
-    const { currentUser, cartItems, cartTotal, resetCart } = this.props;
+    const {
+      currentUser,
+      cartItems,
+      cartTotal,
+      resetCart,
+      showNotification
+    } = this.props;
 
     const response = await axios.get(`/secret/${cartTotal}`);
     const { client_secret: clientSecret } = response.data;
@@ -56,6 +63,7 @@ class CheckoutForm extends Component {
       resetCart();
       // redirect to user's order history or homepage
       this.props.history.push("/");
+      showNotification("Order placed. Thank you!");
     } else {
       console.log("Error processing payment");
     }
@@ -119,6 +127,6 @@ class CheckoutForm extends Component {
   }
 }
 
-export default connect(null, { resetCart })(
+export default connect(null, { resetCart, showNotification })(
   withRouter(injectStripe(CheckoutForm))
 );

@@ -5,6 +5,7 @@ import { device, size } from "../../scripts/media";
 export const LoginbarContainer = styled.div`
   background-color: var(--color-grey-light);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+  position: relative;
 `;
 
 export const LoginMenu = styled.div`

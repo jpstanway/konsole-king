@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import {} from "./register-form.styles";
 
@@ -6,6 +7,7 @@ import AuthForm from "../auth-form/auth-form.component";
 import FormInput from "../form-input/form-input.component";
 
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { showNotification } from "../../redux/notification/notification.actions";
 
 class RegisterForm extends Component {
   constructor() {
@@ -48,6 +50,8 @@ class RegisterForm extends Component {
         password: "",
         confirm_password: ""
       });
+
+      this.props.showNotification("Registration success. Welcome!");
     } catch (error) {
       this.setState({ error: error.message });
     }
@@ -85,4 +89,4 @@ class RegisterForm extends Component {
   }
 }
 
-export default RegisterForm;
+export default connect(null, { showNotification })(RegisterForm);

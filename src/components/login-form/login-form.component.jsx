@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import { LoginFormInputExtra } from "./login-form.styles";
 
@@ -7,6 +8,7 @@ import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+import { showNotification } from "../../redux/notification/notification.actions";
 
 class LoginForm extends Component {
   constructor() {
@@ -32,6 +34,7 @@ class LoginForm extends Component {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: "", password: "" });
+      this.props.showNotification("Login successful!");
     } catch (error) {
       console.error(error);
     }
@@ -76,4 +79,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default connect(null, { showNotification })(LoginForm);
