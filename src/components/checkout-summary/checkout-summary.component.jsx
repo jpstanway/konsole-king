@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   CheckoutSummaryContainer,
@@ -33,6 +34,10 @@ const CheckoutSummary = ({ cartTotal }) => {
       </CheckoutSummaryList>
     </CheckoutSummaryContainer>
   );
+};
+
+CheckoutSummary.propTypes = {
+  cartTotal: PropTypes.number.isRequired
 };
 
 export default CheckoutSummary;

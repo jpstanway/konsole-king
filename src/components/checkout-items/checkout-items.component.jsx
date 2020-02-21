@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import {
@@ -32,5 +33,10 @@ const CheckoutItems = ({ items, removeItem }) => (
     </tbody>
   </CheckoutItemsTable>
 );
+
+CheckoutItems.propTypes = {
+  items: PropTypes.array.isRequired,
+  removeItem: PropTypes.func.isRequired
+};
 
 export default connect(null, { removeItem })(CheckoutItems);

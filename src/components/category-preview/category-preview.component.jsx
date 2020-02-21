@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   CategoryPreviewContainer,
@@ -19,5 +20,10 @@ const CategoryPreview = ({ title, items }) => (
     </CategoryPreviewLink>
   </CategoryPreviewContainer>
 );
+
+CategoryPreview.propTypes = {
+  title: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired
+};
 
 export default CategoryPreview;

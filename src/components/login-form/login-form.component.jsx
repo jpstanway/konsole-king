@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { LoginFormInputExtra } from "./login-form.styles";
@@ -78,5 +79,9 @@ class LoginForm extends Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  showNotification: PropTypes.func
+};
 
 export default connect(null, { showNotification })(LoginForm);

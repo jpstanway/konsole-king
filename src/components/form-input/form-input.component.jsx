@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { InputContainer, Input, TextArea, Label } from "./form-input.styles";
 
@@ -18,5 +19,13 @@ const FormInput = ({ label, type, name, onChange, value, textarea }) => (
     )}
   </InputContainer>
 );
+
+FormInput.propTypes = {
+  label: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string
+};
 
 export default FormInput;

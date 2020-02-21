@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import {
@@ -50,6 +51,14 @@ const ProductCardAlt = ({
     </CardPurchaseContainer>
   </CardContainer>
 );
+
+ProductCardAlt.propTypes = {
+  item: PropTypes.object.isRequired,
+  categoryId: PropTypes.string.isRequired,
+  currentUser: PropTypes.object,
+  addItem: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser

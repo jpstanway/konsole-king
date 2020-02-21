@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
@@ -49,6 +50,12 @@ const Cart = ({ cartItems, cartTotal, updateTotal }) => {
       </CartTotal>
     </CartPage>
   );
+};
+
+Cart.propTypes = {
+  cartItems: PropTypes.array,
+  cartTotal: PropTypes.string,
+  updateTotal: PropTypes.func.isRequired
 };
 
 const mapStateToProps = createStructuredSelector({

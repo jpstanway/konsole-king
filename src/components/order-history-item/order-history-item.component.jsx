@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   OrderHistoryItemContainer,
@@ -37,6 +38,10 @@ const OrderHistoryItem = ({ order }) => {
       </OrderTotal>
     </OrderHistoryItemContainer>
   );
+};
+
+OrderHistoryItem.propTypes = {
+  order: PropTypes.object.isRequired
 };
 
 export default OrderHistoryItem;

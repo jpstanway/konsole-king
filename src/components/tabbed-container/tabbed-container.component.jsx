@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import {
   TabGroup,
@@ -81,6 +82,10 @@ const TabbedContainer = ({ item, children }) => {
       </TabInfo>
     </div>
   );
+};
+
+TabbedContainer.propTypes = {
+  item: PropTypes.object.isRequired
 };
 
 export default TabbedContainer;

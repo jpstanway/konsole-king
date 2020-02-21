@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import {
   ReviewForm,
@@ -98,5 +99,10 @@ class UserReviewForm extends Component {
     );
   }
 }
+
+UserReviewForm.propTypes = {
+  item: PropTypes.object.isRequired,
+  categoryName: PropTypes.string.isRequired
+};
 
 export default UserReviewForm;

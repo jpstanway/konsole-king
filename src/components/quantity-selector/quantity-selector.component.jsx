@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   SelectorContainer,
@@ -34,6 +35,11 @@ const QuantitySelector = ({ quantity, setQuantity }) => {
       <SelectorButton onClick={increment}>+</SelectorButton>
     </SelectorContainer>
   );
+};
+
+QuantitySelector.propTypes = {
+  quantity: PropTypes.number.isRequired,
+  setQuantity: PropTypes.func.isRequired
 };
 
 export default QuantitySelector;

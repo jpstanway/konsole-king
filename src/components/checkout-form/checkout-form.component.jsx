@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { injectStripe } from "react-stripe-elements";
@@ -126,6 +127,14 @@ class CheckoutForm extends Component {
     );
   }
 }
+
+CheckoutForm.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  cartItems: PropTypes.array.isRequired,
+  cartTotal: PropTypes.number.isRequired,
+  resetCart: PropTypes.func.isRequired,
+  showNotification: PropTypes.func.isRequired
+};
 
 export default connect(null, { resetCart, showNotification })(
   withRouter(injectStripe(CheckoutForm))

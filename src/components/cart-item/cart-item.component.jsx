@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import {
@@ -12,7 +13,7 @@ import {
 
 import { removeItem } from "../../redux/cart/cart.actions";
 
-const cartItem = ({ item, removeItem }) => {
+const CartItem = ({ item, removeItem }) => {
   const totalItemPrice = item.price * item.quantity;
 
   return (
@@ -34,4 +35,9 @@ const cartItem = ({ item, removeItem }) => {
   );
 };
 
-export default connect(null, { removeItem })(cartItem);
+CartItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  removeItem: PropTypes.func.isRequired
+};
+
+export default connect(null, { removeItem })(CartItem);

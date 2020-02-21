@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import queryString from "query-string";
 
@@ -45,6 +46,10 @@ const Category = ({ category, location }) => {
       </CategoryItems>
     </CategoryContainer>
   );
+};
+
+Category.propTypes = {
+  category: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {

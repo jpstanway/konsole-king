@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import {
@@ -67,6 +68,12 @@ const Item = ({ match, category, currentUser, addItem }) => {
       </ItemSpecifications>
     </ItemPage>
   );
+};
+
+Item.propTypes = {
+  category: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
+  addItem: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({

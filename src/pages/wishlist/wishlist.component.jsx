@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { WishlistPage, WishlistTitle } from "./wishlist.styles";
@@ -17,6 +18,10 @@ const Wishlist = ({ currentUser }) => (
     )}
   </WishlistPage>
 );
+
+Wishlist.propTypes = {
+  currentUser: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser

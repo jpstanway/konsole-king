@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   CategoryOverlay,
@@ -14,5 +15,9 @@ const BrandShortcut = ({ category: { banner, logo, platform, company } }) => (
     <CategoryOverlay />
   </CategoryContainer>
 );
+
+BrandShortcut.propTypes = {
+  category: PropTypes.object.isRequired
+};
 
 export default BrandShortcut;

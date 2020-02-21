@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
@@ -45,6 +46,11 @@ const CartDropdown = ({ cartItems, cartTotal, updateTotal }) => {
       </Cart>
     </CartContainer>
   );
+};
+
+CartDropdown.propTypes = {
+  cartItems: PropTypes.array,
+  cartTotal: PropTypes.number
 };
 
 const mapStateToProps = createStructuredSelector({

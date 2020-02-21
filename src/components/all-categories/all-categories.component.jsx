@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -36,6 +37,10 @@ const AllCategories = ({ categories, location }) => (
       })}
   </AllCategoriesContainer>
 );
+
+AllCategories.propTypes = {
+  categories: PropTypes.array.isRequired
+};
 
 const mapStateToProps = createStructuredSelector({
   categories: selectCategoriesForPreview

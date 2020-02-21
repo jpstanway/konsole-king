@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import "../../scripts/dropdown";
@@ -18,7 +19,7 @@ import {
 
 import Notification from "../notification/notification.component";
 
-const Loginbar = ({ currentUser, showNotification }) => {
+const LoginBar = ({ currentUser, showNotification }) => {
   const handleLogout = () => {
     auth.signOut();
     showNotification("Successfully logged out");
@@ -65,8 +66,13 @@ const Loginbar = ({ currentUser, showNotification }) => {
   );
 };
 
+LoginBar.propTypes = {
+  currentUser: PropTypes.object,
+  showNotification: PropTypes.func
+};
+
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(mapStateToProps, { showNotification })(Loginbar);
+export default connect(mapStateToProps, { showNotification })(LoginBar);

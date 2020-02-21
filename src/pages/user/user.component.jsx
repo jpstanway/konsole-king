@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
@@ -52,6 +53,10 @@ class User extends Component {
     );
   }
 }
+
+User.propTypes = {
+  currentUser: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser

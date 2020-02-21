@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import AuthForm from "../auth-form/auth-form.component";
@@ -86,5 +87,9 @@ class RegisterForm extends Component {
     );
   }
 }
+
+RegisterForm.propTypes = {
+  showNotification: PropTypes.func
+};
 
 export default connect(null, { showNotification })(RegisterForm);

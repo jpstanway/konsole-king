@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
@@ -72,5 +73,9 @@ class Browse extends Component {
     );
   }
 }
+
+Browse.propTypes = {
+  updateCategories: PropTypes.func.isRequired
+};
 
 export default connect(null, { updateCategories })(Browse);

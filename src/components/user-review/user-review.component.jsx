@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   UserReviewTextBubble,
@@ -32,6 +33,10 @@ const UserReview = ({ review }) => {
       </UserReviewTextBubble>
     </UserReviewContainer>
   );
+};
+
+UserReview.propTypes = {
+  review: PropTypes.object.isRequired
 };
 
 export default UserReview;

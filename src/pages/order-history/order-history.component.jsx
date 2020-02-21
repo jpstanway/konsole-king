@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { OrderHistoryPage, OrderHistoryTitle } from "./order-history.styles";
@@ -17,6 +18,10 @@ const OrderHistory = ({ currentUser }) => (
     )}
   </OrderHistoryPage>
 );
+
+OrderHistory.propTypes = {
+  currentUser: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser
