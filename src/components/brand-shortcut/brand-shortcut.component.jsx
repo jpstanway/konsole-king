@@ -5,11 +5,9 @@ import {
   CategoryContainer,
   CategoryImg,
   CategoryLogo
-} from "./category-overview.styles";
+} from "./brand-shortcut.styles";
 
-const CategoryOverview = ({
-  category: { banner, logo, platform, company }
-}) => (
+const BrandShortcut = ({ category: { banner, logo, platform, company } }) => (
   <CategoryContainer to={`/browse/consoles?allConsoles=true&brand=${company}`}>
     <CategoryImg src={banner} alt={platform} />
     <CategoryLogo src={logo} alt={platform} />
@@ -17,4 +15,4 @@ const CategoryOverview = ({
   </CategoryContainer>
 );
 
-export default CategoryOverview;
+export default BrandShortcut;

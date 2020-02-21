@@ -1,9 +1,9 @@
 import React from "react";
 
-import { HomePage, Main, Categories } from "./home.styles";
+import { HomePage, Main, Brands } from "./home.styles";
 import MainMenu from "../../components/main-menu/main-menu.component";
 import MainSlider from "../../components/main-slider/main-slider.component";
-import Category from "../../components/category-overview/category-overview.component";
+import BrandShortcut from "../../components/brand-shortcut/brand-shortcut.component";
 
 import categories from "../../scripts/categories";
 
@@ -13,11 +13,11 @@ const Home = () => (
       <MainMenu />
       <MainSlider />
     </Main>
-    <Categories>
+    <Brands>
       {categories.map(category => (
-        <Category key={category.platform} category={category} />
+        <BrandShortcut key={category.platform} category={category} />
       ))}
-    </Categories>
+    </Brands>
   </HomePage>
 );
 

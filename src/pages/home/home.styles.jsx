@@ -25,7 +25,7 @@ export const Main = styled.div`
   }
 `;
 
-export const Categories = styled.div`
+export const Brands = styled.div`
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(2, 1fr);

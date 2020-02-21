@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import {} from "./register-form.styles";
-
 import AuthForm from "../auth-form/auth-form.component";
 import FormInput from "../form-input/form-input.component";
 
