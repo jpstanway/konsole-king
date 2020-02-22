@@ -21,11 +21,8 @@ class User extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.currentUser !== prevProps.currentUser &&
-      this.props.currentUser.hasOwnProperty("wishlist")
-    ) {
+  componentDidMount() {
+    if (this.props.currentUser) {
       this.setState({ loading: false });
     }
   }
