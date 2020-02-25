@@ -16,6 +16,7 @@ export const AuthFormContainer = styled.div`
   }
 
   button {
+    margin-top: 1rem;
     width: 100%;
   }
 `;

@@ -15,9 +15,10 @@ class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
-      remember: false
+      loginEmail: "",
+      loginPassword: "",
+      remember: false,
+      loginError: ""
     };
   }
 
@@ -30,36 +31,42 @@ class LoginForm extends Component {
   onSubmit = async e => {
     e.preventDefault();
 
-    const { email, password } = this.state;
+    const { loginEmail, loginPassword } = this.state;
 
     try {
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: "", password: "" });
+      await auth.signInWithEmailAndPassword(loginEmail, loginPassword);
+      this.setState({ loginEmail: "", loginPassword: "" });
       this.props.showNotification("Login successful!");
     } catch (error) {
-      console.error(error);
+      this.setState({ loginError: error.message });
     }
   };
 
   render() {
+    const { loginEmail, loginPassword, remember, loginError } = this.state;
+
     return (
       <AuthForm
         onSubmit={this.onSubmit}
         title="Sign In"
         subText="Welcome back"
         btnText="Secure Sign In"
+        btnId="loginSubmit"
+        error={loginError}
       >
         <FormInput
           label="Email"
           type="email"
-          name="email"
+          name="loginEmail"
           onChange={this.handleChange}
+          value={loginEmail}
         />
         <FormInput
           label="Password"
           type="password"
-          name="password"
+          name="loginPassword"
           onChange={this.handleChange}
+          value={loginPassword}
         />
         <LoginFormInputExtra>
           <div>
@@ -67,6 +74,7 @@ class LoginForm extends Component {
               type="checkbox"
               name="remember"
               onChange={this.handleChange}
+              value={remember}
             />
             <label htmlFor="remember">Remember Me</label>
           </div>
