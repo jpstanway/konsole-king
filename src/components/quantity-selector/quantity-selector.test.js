@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import QuantitySelector from "./quantity-selector.component";
 
-test("renders component", () => {
-  const { container } = render(<QuantitySelector />);
+describe("<QuantitySelector />", () => {
+  test("renders component", () => {
+    const component = render(<QuantitySelector />);
 
-  expect(container).toHaveTextContent("-");
+    expect(component.container).toHaveTextContent("-");
+  });
 });

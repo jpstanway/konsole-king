@@ -6,19 +6,21 @@ import BrandShortcut from "./brand-shortcut.component";
 import nintendoBanner from "../../assets/nintendo_banner_1.png";
 import nintendoLogo from "../../assets/nintendo-logo.png";
 
-test("renders content", () => {
-  const brand = {
-    platform: "nintendo",
-    company: "Nintendo",
-    banner: nintendoBanner,
-    logo: nintendoLogo
-  };
+describe("<BrandShortcut />", () => {
+  test("renders content", () => {
+    const brand = {
+      platform: "nintendo",
+      company: "Nintendo",
+      banner: nintendoBanner,
+      logo: nintendoLogo
+    };
 
-  const { getAllByAltText } = render(
-    <Router>
-      <BrandShortcut category={brand} />
-    </Router>
-  );
+    const { getAllByAltText } = render(
+      <Router>
+        <BrandShortcut category={brand} />
+      </Router>
+    );
 
-  expect(getAllByAltText("nintendo")).toHaveLength(2);
+    expect(getAllByAltText("nintendo")).toHaveLength(2);
+  });
 });

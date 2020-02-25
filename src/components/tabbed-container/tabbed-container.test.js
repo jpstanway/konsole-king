@@ -1,9 +1,10 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import TabbedContainer from "./tabbed-container.component";
 
-test("renders component", () => {
+describe("<TabbedContainer />", () => {
+  let component;
   const item = {
     id: 304,
     item: "Xbox",
@@ -24,7 +25,18 @@ test("renders component", () => {
     reviews: []
   };
 
-  const { container } = render(<TabbedContainer item={item} />);
+  beforeEach(() => {
+    component = render(<TabbedContainer item={item} />);
+  });
 
-  expect(container).toHaveTextContent("Description");
+  test("renders component", () => {
+    expect(component.container).toHaveTextContent("Description");
+  });
+
+  test("can click to another tab", () => {
+    const addInfoBtn = component.getByText("Additional Information");
+    fireEvent.click(addInfoBtn);
+
+    expect(component.container).toHaveTextContent("227 g");
+  });
 });

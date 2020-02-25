@@ -56,3 +56,8 @@ select:active {
 .hide-slide-two {
   right: -100%;
 }
+
+/* account options toggle class */
+.account-option-active {
+  border: "2px solid var(--color-tertiary)";
+}

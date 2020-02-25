@@ -10,6 +10,7 @@ const FormInput = ({ label, type, name, onChange, value, textarea }) => (
       <TextArea name={name} onChange={onChange} value={value} required />
     ) : (
       <Input
+        id={name}
         type={type}
         name={name}
         onChange={onChange}
