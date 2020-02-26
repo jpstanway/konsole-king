@@ -30,7 +30,7 @@ const CartDropdown = ({ cartItems, cartTotal, updateTotal }) => {
     <CartContainer>
       <CartIcon id="cart-btn" className="fas fa-shopping-cart fa-3x"></CartIcon>
       <span>Your Cart:</span>
-      <CartTotal>${cartTotal / 100}</CartTotal>
+      <CartTotal id="cart-total">${cartTotal / 100}</CartTotal>
 
       <Cart id="cart">
         {cartItems.length > 0 ? (

@@ -28,7 +28,7 @@ const CartItem = ({ item, removeItem }) => {
         <p>Qty: {item.quantity}</p>
         <CartItemPrice>${totalItemPrice / 100}</CartItemPrice>
       </CartItemInfo>
-      <CartItemRemove onClick={() => removeItem(item)}>
+      <CartItemRemove id="cart-remove" onClick={() => removeItem(item)}>
         <i className="fas fa-window-close"></i>
       </CartItemRemove>
     </CartItemContainer>
