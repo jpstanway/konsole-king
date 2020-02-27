@@ -28,6 +28,7 @@ const SearchBar = ({ history }) => {
   return (
     <SearchContainer onSubmit={handleSubmit}>
       <SearchInput
+        id="search-bar"
         onChange={e => setSearchValue(e.target.value)}
         value={searchValue}
         name="searchValue"
@@ -49,7 +50,7 @@ const SearchBar = ({ history }) => {
         <option value="audio">Audio</option>
         <option value="used">Used</option>
       </SearchDropdown>
-      <SearchButton type="submit">
+      <SearchButton id="search-bar-btn" type="submit">
         <i className="fas fa-search fa-2x"></i>
       </SearchButton>
     </SearchContainer>

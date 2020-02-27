@@ -9,7 +9,10 @@ import {
 } from "./brand-shortcut.styles";
 
 const BrandShortcut = ({ category: { banner, logo, platform, company } }) => (
-  <CategoryContainer to={`/browse/consoles?allConsoles=true&brand=${company}`}>
+  <CategoryContainer
+    className="brand-shortcut"
+    to={`/browse/consoles?allConsoles=true&brand=${company}`}
+  >
     <CategoryImg src={banner} alt={platform} />
     <CategoryLogo src={logo} alt={platform} />
     <CategoryOverlay />

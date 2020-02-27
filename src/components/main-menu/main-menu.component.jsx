@@ -42,13 +42,13 @@ const MainMenu = () => (
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to={`/browse/${customLinks["legacy"]}`}>
+      <MainMenuLink to={`/browse/${customLinks["legacy-consoles"]}`}>
         Legacy consoles
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
     </MainMenuItem>
     <MainMenuItem>
-      <MainMenuLink to={`/browse/${customLinks["vr"]}`}>
+      <MainMenuLink to={`/browse/${customLinks["vr-headsets"]}`}>
         VR headsets
         <MainMenuItemIcon className="fas fa-chevron-circle-right"></MainMenuItemIcon>
       </MainMenuLink>
