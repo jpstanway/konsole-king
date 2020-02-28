@@ -49,12 +49,11 @@ export const createUserProfileDocument = async userAuth => {
 };
 
 // update user wishlist
-export const updateUserWishlist = async (userId, wishlistItem, orderItems) => {
+export const updateUserWishlist = async (userId, wishlistItem) => {
   try {
     const userRef = await firestore.collection("users").doc(userId);
 
     if (!userRef) {
-      alert("You must be logged in");
       return false;
     }
 
@@ -65,7 +64,6 @@ export const updateUserWishlist = async (userId, wishlistItem, orderItems) => {
     const itemExists = wishlist.find(item => item.id === wishlistItem.id);
 
     if (itemExists) {
-      alert("Item already exists in wishlist");
       return false;
     }
 

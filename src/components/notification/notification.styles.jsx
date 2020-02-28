@@ -8,6 +8,14 @@ const getHiddenStatus = props => {
   return hiddenStyle;
 };
 
+const getErrorStatus = props => {
+  if (!props.error) {
+    return bgSuccess;
+  }
+
+  return bgError;
+};
+
 const hiddenStyle = css`
   top: -10rem;
   opacity: 0%;
@@ -29,8 +37,15 @@ const showStyle = css`
   }
 `;
 
-export const NotificationContainer = styled.div`
+const bgSuccess = css`
   background-color: var(--color-tertiary-light);
+`;
+
+const bgError = css`
+  background-color: var(--color-secondary-light);
+`;
+
+export const NotificationContainer = styled.div`
   border: 1px solid var(--color-grey-dark);
   border-radius: 4px;
   padding: 2rem;
@@ -42,6 +57,7 @@ export const NotificationContainer = styled.div`
   z-index: 999;
 
   ${getHiddenStatus}
+  ${getErrorStatus}
 `;
 
 export const NotificationText = styled.p`

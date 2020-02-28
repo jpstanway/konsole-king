@@ -13,6 +13,7 @@ import User from "./pages/user/user.component";
 import Cart from "./pages/cart/cart.component";
 import Checkout from "./pages/checkout/checkout.component";
 import Footer from "./components/footer/footer.component";
+import WithSpinner from "./components/with-spinner/with-spinner.component";
 
 //import collections from "./scripts/collections";
 
@@ -24,7 +25,16 @@ import {
 
 import { setCurrentUser } from "./redux/user/user.actions";
 
+const UserPageWithSpinner = WithSpinner(User);
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
+
   unsubscribeFromAuth = null;
 
   componentDidMount() {
@@ -45,6 +55,7 @@ class App extends Component {
 
       // set current user to redux store
       setCurrentUser(userAuth);
+      this.setState({ loading: false });
     });
 
     // add category + items
@@ -62,7 +73,12 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/user" component={User} />
+          <Route
+            path="/user"
+            render={props => (
+              <UserPageWithSpinner isLoading={this.state.loading} {...props} />
+            )}
+          />
           <Route path="/browse" component={Browse} />
           <Route path="/cart" component={Cart} />
           <Route

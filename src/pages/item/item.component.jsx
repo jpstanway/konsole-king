@@ -19,17 +19,33 @@ import {
 import { selectCategory } from "../../redux/browse/browse.selectors";
 import { updateUserWishlist } from "../../firebase/firebase.utils";
 import { addItem } from "../../redux/cart/cart.actions";
+import { showNotification } from "../../redux/notification/notification.actions";
 
 import CustomButton from "../../components/custom-button/custom-button.component";
 import QuantitySelector from "../../components/quantity-selector/quantity-selector.component";
 import TabbedContainer from "../../components/tabbed-container/tabbed-container.component";
 import UserReviewForm from "../../components/user-review-form/user-review-form.component";
 
-const Item = ({ match, category, currentUser, addItem }) => {
+const Item = ({ match, category, currentUser, addItem, showNotification }) => {
   const [quantity, setQuantity] = useState(1);
   const item = category.items.find(
     item => Number(match.params.itemId) === item.id
   );
+
+  const handleAddToWishlist = item => {
+    if (!currentUser) {
+      showNotification("You must be logged in", true);
+      return false;
+    } else if (
+      currentUser.wishlist.find(wishlistItem => item.id === wishlistItem.id)
+    ) {
+      showNotification("Item already added to wishlist", true);
+      return false;
+    }
+
+    updateUserWishlist(currentUser.id, item);
+    showNotification("Item added to wishlist");
+  };
 
   return (
     <ItemPage>
@@ -42,10 +58,7 @@ const Item = ({ match, category, currentUser, addItem }) => {
         </ItemAvailability>
         <ItemName>{item.item}</ItemName>
         <ItemBrand>{item.company}</ItemBrand>
-        <CustomButton
-          onClick={() => updateUserWishlist(currentUser.id, item)}
-          btnLink
-        >
+        <CustomButton onClick={() => handleAddToWishlist(item)} btnLink>
           <i className="fas fa-heart"></i> Add To Wishlist
         </CustomButton>
         <ItemSummary>
@@ -73,7 +86,8 @@ const Item = ({ match, category, currentUser, addItem }) => {
 Item.propTypes = {
   category: PropTypes.object.isRequired,
   currentUser: PropTypes.object,
-  addItem: PropTypes.func.isRequired
+  addItem: PropTypes.func.isRequired,
+  showNotification: PropTypes.func
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -81,4 +95,4 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(mapStateToProps, { addItem })(Item);
+export default connect(mapStateToProps, { addItem, showNotification })(Item);

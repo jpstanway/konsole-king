@@ -5,7 +5,10 @@ import { connect } from "react-redux";
 import { NotificationContainer, NotificationText } from "./notification.styles";
 
 const Notification = ({ notification }) => (
-  <NotificationContainer hidden={notification.hidden}>
+  <NotificationContainer
+    hidden={notification.hidden}
+    error={notification.error}
+  >
     <NotificationText>{notification.message}</NotificationText>
   </NotificationContainer>
 );

@@ -26,8 +26,18 @@ const ProductCard = ({
   addItem,
   showNotification
 }) => {
-  const handleAddToWishlist = (id, item) => {
-    updateUserWishlist(id, item);
+  const handleAddToWishlist = item => {
+    if (!currentUser) {
+      showNotification("You must be logged in", true);
+      return false;
+    } else if (
+      currentUser.wishlist.find(wishlistItem => item.id === wishlistItem.id)
+    ) {
+      showNotification("Item already added to wishlist", true);
+      return false;
+    }
+
+    updateUserWishlist(currentUser.id, item);
     showNotification("Item added to wishlist");
   };
 
@@ -44,10 +54,7 @@ const ProductCard = ({
       </CardInfoContainer>
       <CardPurchaseContainer>
         <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
-        <CustomButton
-          onClick={() => handleAddToWishlist(currentUser.id, item)}
-          btnLink
-        >
+        <CustomButton onClick={() => handleAddToWishlist(item)} btnLink>
           <i className="fas fa-heart"></i> Add To Wishlist
         </CustomButton>
       </CardPurchaseContainer>

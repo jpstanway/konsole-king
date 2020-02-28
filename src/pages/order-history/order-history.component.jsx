@@ -10,9 +10,13 @@ const OrderHistory = ({ currentUser }) => (
   <OrderHistoryPage>
     <OrderHistoryTitle>Order History</OrderHistoryTitle>
     {currentUser.orderHistory && currentUser.orderHistory.length > 0 ? (
-      currentUser.orderHistory.map(order => (
-        <OrderHistoryItem key={order.total} order={order} />
-      ))
+      currentUser.orderHistory
+        .sort((a, b) => {
+          const dateA = new Date(a.createdAt.toDate());
+          const dateB = new Date(b.createdAt.toDate());
+          return dateB - dateA;
+        })
+        .map(order => <OrderHistoryItem key={order.total} order={order} />)
     ) : (
       <p>Your order history is empty</p>
     )}
