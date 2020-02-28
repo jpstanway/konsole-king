@@ -24,7 +24,7 @@ const Footer = () => (
         <FooterBtn>Subscribe</FooterBtn>
       </FooterInputContainer>
       <FooterInfo>
-        <Logo />
+        <Logo footer />
         <SocialMenu>
           <li>
             <SocialIcon to="/">
@@ -70,40 +70,42 @@ const Footer = () => (
             </tr>
             <tr>
               <td>
-                <FooterLink to="/">Consoles</FooterLink>
+                <FooterLink to="/browse/consoles?allConsoles=true">
+                  Consoles
+                </FooterLink>
               </td>
               <td>
                 <FooterLink to="/">Find A Store</FooterLink>
               </td>
               <td>
-                <FooterLink to="/">My Account</FooterLink>
+                <FooterLink to="/user">My Account</FooterLink>
               </td>
             </tr>
             <tr>
               <td>
-                <FooterLink to="/">Games</FooterLink>
+                <FooterLink to="/browse/vr">VR</FooterLink>
               </td>
               <td>
                 <FooterLink to="/">About Us</FooterLink>
               </td>
               <td>
-                <FooterLink to="/">Order Tracking</FooterLink>
+                <FooterLink to="/user/orders">Order History</FooterLink>
               </td>
             </tr>
             <tr>
               <td>
-                <FooterLink to="/">Accessories</FooterLink>
+                <FooterLink to="/browse/accessories">Accessories</FooterLink>
               </td>
               <td>
                 <FooterLink to="/">Contact Us</FooterLink>
               </td>
               <td>
-                <FooterLink to="/">Wish List</FooterLink>
+                <FooterLink to="/user/wishlist">Wish List</FooterLink>
               </td>
             </tr>
             <tr>
               <td>
-                <FooterLink to="/">Laptops</FooterLink>
+                <FooterLink to="/browse/audio">Audio</FooterLink>
               </td>
               <td>
                 <FooterLink to="/">Careers</FooterLink>
@@ -114,7 +116,7 @@ const Footer = () => (
             </tr>
             <tr>
               <td>
-                <FooterLink to="/">TVs / Monitors</FooterLink>
+                <FooterLink to="/browse/used">Used</FooterLink>
               </td>
               <td>
                 <FooterLink to="/">Gift Cards</FooterLink>

@@ -1,10 +1,14 @@
 import React from "react";
 
 import { LogoContainer, LogoImg } from "./logo.styles";
+import logo from "../../assets/kk-logo.png";
+import footerLogo from "../../assets/kk-logo-f.png";
 
-const Logo = () => (
+const Logo = ({ footer }) => (
   <LogoContainer>
-    <LogoImg to="/">Konsole King</LogoImg>
+    <LogoImg to="/">
+      <img src={footer ? footerLogo : logo} alt="konsole king logo" />
+    </LogoImg>
   </LogoContainer>
 );
 
