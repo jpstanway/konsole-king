@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "cypress": "^4.0.2",
     "express": "^4.17.1",
     "firebase": "^7.6.1",
+    "helmet": "^3.21.3",
     "jquery": "^3.4.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.10.1",
@@ -31,7 +34,8 @@
     "eject": "react-scripts eject",
     "server": "nodemon src/server.js",
     "dev": "concurrently \"npm start \" \"npm run server\"",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"

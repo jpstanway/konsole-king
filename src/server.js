@@ -1,6 +1,15 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
+const helmet = require("helmet");
+const cors = require("cors");
 const stripe = require("stripe")("sk_test_qfpFcLmY2nnB6TYAhv2ScnHk00yRKMBges");
+
+// middleware
+app.use(cors());
+app.use(helmet());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // create payment intent object for client side
 app.get("/secret/:total", async (req, res) => {
