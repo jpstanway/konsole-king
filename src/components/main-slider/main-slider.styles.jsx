@@ -20,13 +20,13 @@ export const SliderBtn = styled.span`
   width: 4rem;
   height: 5px;
   background-color: var(--color-grey);
-  opacity: 80%;
+  opacity: 0.8;
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.2s;
 
   &:hover {
-    opacity: 100%;
+    opacity: 1;
   }
 `;
 

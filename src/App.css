@@ -38,7 +38,7 @@ select:active {
 
 /* main slider */
 .slider-active {
-  opacity: 100% !important;
+  opacity: 1 !important;
 }
 
 .show-slide-one {

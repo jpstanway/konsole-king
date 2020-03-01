@@ -18,7 +18,7 @@ const getErrorStatus = props => {
 
 const hiddenStyle = css`
   top: -10rem;
-  opacity: 0%;
+  opacity: 0;
 `;
 
 const showStyle = css`
@@ -27,12 +27,12 @@ const showStyle = css`
   @keyframes show {
     from {
       top: -10rem;
-      opacity: 0%;
+      opacity: 0;
     }
 
     to {
       top: 5rem;
-      opacity: 100%;
+      opacity: 1;
     }
   }
 `;
