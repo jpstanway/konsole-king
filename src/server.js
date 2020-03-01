@@ -21,6 +21,13 @@ app.get("/secret/:total", async (req, res) => {
   res.json({ client_secret: paymentIntent.client_secret });
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+}
+
 const port = 3001;
 app.listen(port, () => {
   console.log(`Express server running on port ${port}`);

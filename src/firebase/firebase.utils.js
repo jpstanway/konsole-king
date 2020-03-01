@@ -177,10 +177,16 @@ export const createNewOrderDocument = async (order, total, currentUser) => {
       createdAt
     });
 
+    console.log(await newOrderRef.get());
+
     // update users order history
+    let newOrder = await newOrderRef.get();
     let orderHistory = await userRef.get();
     orderHistory = orderHistory.data().orderHistory;
-    orderHistory = [...orderHistory, { order, total, createdAt }];
+    orderHistory = [
+      ...orderHistory,
+      { id: newOrder.id, order, total, createdAt }
+    ];
     await userRef.update({ orderHistory });
   } catch (error) {
     console.log("error creating order", error.message);

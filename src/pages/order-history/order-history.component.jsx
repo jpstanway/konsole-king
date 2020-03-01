@@ -15,7 +15,7 @@ const OrderHistory = ({ currentUser }) => (
           const dateB = new Date(b.createdAt.toDate());
           return dateB - dateA;
         })
-        .map(order => <OrderHistoryItem key={order.total} order={order} />)
+        .map(order => <OrderHistoryItem key={order.id} order={order} />)
     ) : (
       <p>Your order history is empty</p>
     )}
