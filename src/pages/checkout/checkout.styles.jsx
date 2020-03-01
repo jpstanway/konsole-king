@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { size } from "../../scripts/media";
+import { size, device } from "../../scripts/media";
 
 export const CheckoutPage = styled.div`
   display: grid;
@@ -9,4 +9,8 @@ export const CheckoutPage = styled.div`
   width: 100%;
   max-width: ${size.laptopM};
   margin: auto;
+
+  @media ${device.laptop} {
+    grid-template-columns: 1fr;
+  }
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../../scripts/media";
 
 export const CardContainer = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -14,6 +15,10 @@ export const CardContainer = styled.div`
 
   &:hover {
     border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr;
   }
 `;
 
