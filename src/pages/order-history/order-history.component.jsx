@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 
 import { OrderHistoryPage, OrderHistoryTitle } from "./order-history.styles";
 
@@ -27,8 +26,4 @@ OrderHistory.propTypes = {
   currentUser: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
-});
-
-export default connect(mapStateToProps)(OrderHistory);
+export default OrderHistory;

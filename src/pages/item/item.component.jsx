@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import {
   ItemPage,
@@ -76,7 +77,14 @@ const Item = ({ match, category, currentUser, addItem, showNotification }) => {
       </ItemPurchaseContainer>
       <ItemSpecifications>
         <TabbedContainer item={item}>
-          <UserReviewForm item={item} categoryName={category.title} />
+          {currentUser ? (
+            <UserReviewForm item={item} categoryName={category.title} />
+          ) : (
+            <p>
+              You must be <Link to="/register-login">logged in</Link> to write a
+              review
+            </p>
+          )}
         </TabbedContainer>
       </ItemSpecifications>
     </ItemPage>

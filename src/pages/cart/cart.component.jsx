@@ -54,7 +54,7 @@ const Cart = ({ cartItems, cartTotal, updateTotal }) => {
 
 Cart.propTypes = {
   cartItems: PropTypes.array,
-  cartTotal: PropTypes.string,
+  cartTotal: PropTypes.number,
   updateTotal: PropTypes.func.isRequired
 };
 

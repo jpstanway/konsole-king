@@ -43,6 +43,7 @@ export const Slide = styled.div`
   width: 100%;
   height: 100%;
   background: url(${props => props.slide});
+  opacity: 0%;
   position: absolute;
   top: 0;
   transition: all 0.2s ease-in;

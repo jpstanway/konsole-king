@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import "./App.css";
 
@@ -24,6 +25,8 @@ import {
 } from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectCartTotal } from "./redux/cart/cart.selectors";
 
 const UserPageWithSpinner = WithSpinner(User);
 
@@ -67,6 +70,8 @@ class App extends Component {
   }
 
   render() {
+    const { currentUser, cartTotal } = this.props;
+
     return (
       <div className="App">
         <LoginBar />
@@ -75,23 +80,30 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route
             path="/user"
-            render={props => (
-              <UserPageWithSpinner isLoading={this.state.loading} {...props} />
-            )}
+            render={props =>
+              currentUser ? (
+                <UserPageWithSpinner
+                  isLoading={this.state.loading}
+                  {...props}
+                />
+              ) : (
+                <Redirect to="/register-login" />
+              )
+            }
           />
           <Route path="/browse" component={Browse} />
           <Route path="/cart" component={Cart} />
           <Route
             path="/register-login"
             render={() =>
-              this.props.currentUser ? <Redirect to="/" /> : <RegisterLogin />
+              currentUser ? <Redirect to="/" /> : <RegisterLogin />
             }
           />
           <Route
             exact
             path="/checkout"
             render={() =>
-              this.props.currentUser ? (
+              currentUser && cartTotal > 0 ? (
                 <Checkout />
               ) : (
                 <Redirect to="/register-login" />
@@ -105,8 +117,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  cartTotal: selectCartTotal
 });
 
 export default connect(mapStateToProps, { setCurrentUser })(App);
