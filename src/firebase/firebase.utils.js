@@ -177,8 +177,6 @@ export const createNewOrderDocument = async (order, total, currentUser) => {
       createdAt
     });
 
-    console.log(await newOrderRef.get());
-
     // update users order history
     let newOrder = await newOrderRef.get();
     let orderHistory = await userRef.get();
