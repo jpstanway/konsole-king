@@ -10,17 +10,23 @@ export const ItemPage = styled.div`
 
   @media ${device.tablet} {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, min-content);
+    grid-template-rows: 1fr repeat(2, min-content);
   }
 `;
 
 export const ItemImageContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  @media ${device.tablet} {
+    height: 25rem;
+  }
 `;
 
 export const ItemImage = styled.img`
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 export const ItemPurchaseContainer = styled.div`

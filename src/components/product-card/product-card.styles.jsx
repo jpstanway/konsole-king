@@ -42,10 +42,19 @@ export const CardInfoContainer = styled.div`
   padding: 2rem;
 `;
 
-export const CardProductImage = styled.img`
+export const CardImageContainer = styled.div`
   width: 100%;
-  max-height: 18rem;
-  margin: auto 0;
+  height: 18rem;
+  position: relative;
+`;
+
+export const CardProductImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const CardProductLink = styled(Link)`

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import {
   CardContainer,
   CardInfoContainer,
+  CardImageContainer,
   CardProductImage,
   CardProductLink,
   CardBrandName,
@@ -44,7 +45,9 @@ const ProductCard = ({
   return (
     <CardContainer>
       <CardInfoContainer>
-        <CardProductImage src={item.imageUrl} alt="product" />
+        <CardImageContainer>
+          <CardProductImage src={item.imageUrl} alt="product" />
+        </CardImageContainer>
         <CardProductLink to={`/browse/${categoryId}/${item.id}`}>
           {item.item}
         </CardProductLink>
