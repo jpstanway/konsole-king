@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import {
   CardContainer,
@@ -13,6 +14,7 @@ import {
 
 import { removeItemFromWishlist } from "../../firebase/firebase.utils";
 import { addItem, removeItem } from "../../redux/cart/cart.actions";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import CustomButton from "../custom-button/custom-button.component";
 
@@ -23,34 +25,43 @@ const ProductCardAlt = ({
   addItem,
   removeItem,
   checkoutCard
-}) => (
-  <CardContainer>
-    <CardProductImage src={item.imageUrl} alt="product" />
-    <CardInfoContainer>
-      <CardProductLink to={`/browse/${categoryId}/${item.id}`}>
-        {item.item}
-      </CardProductLink>
-      <CardProductPrice>${Number(item.price) / 100}</CardProductPrice>
-    </CardInfoContainer>
-    <CardPurchaseContainer>
-      {checkoutCard ? (
-        <p>Quantity: {item.quantity}</p>
-      ) : (
-        <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
-      )}
-      <CustomButton
-        onClick={() =>
-          checkoutCard
-            ? removeItem(item)
-            : removeItemFromWishlist(currentUser.id, item)
-        }
-        btnLink
-      >
-        <i className="fas fa-window-close"></i> Remove
-      </CustomButton>
-    </CardPurchaseContainer>
-  </CardContainer>
-);
+}) => {
+  const handleAddItemToCart = item => {
+    addItem(item);
+    removeItemFromWishlist(currentUser.id, item);
+  };
+
+  return (
+    <CardContainer>
+      <CardProductImage src={item.imageUrl} alt="product" />
+      <CardInfoContainer>
+        <CardProductLink to={`/browse/${categoryId}/${item.id}`}>
+          {item.item}
+        </CardProductLink>
+        <CardProductPrice>${Number(item.price) / 100}</CardProductPrice>
+      </CardInfoContainer>
+      <CardPurchaseContainer>
+        {checkoutCard ? (
+          <p>Quantity: {item.quantity}</p>
+        ) : (
+          <CustomButton onClick={() => handleAddItemToCart(item)}>
+            Add To Cart
+          </CustomButton>
+        )}
+        <CustomButton
+          onClick={() =>
+            checkoutCard
+              ? removeItem(item)
+              : removeItemFromWishlist(currentUser.id, item)
+          }
+          btnLink
+        >
+          <i className="fas fa-window-close"></i> Remove
+        </CustomButton>
+      </CardPurchaseContainer>
+    </CardContainer>
+  );
+};
 
 ProductCardAlt.propTypes = {
   item: PropTypes.object.isRequired,
@@ -60,8 +71,8 @@ ProductCardAlt.propTypes = {
   removeItem: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 
 export default connect(mapStateToProps, { addItem, removeItem })(
