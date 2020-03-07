@@ -92,6 +92,11 @@ export const FooterLink = styled(Link)`
   }
 `;
 
+export const FooterCopyright = styled.p`
+  color: var(--color-grey);
+  text-align: center;
+`;
+
 export const FooterMenu = styled.table`
   margin: auto;
   text-align: left;
