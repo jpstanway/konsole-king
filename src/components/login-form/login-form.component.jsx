@@ -15,8 +15,8 @@ class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
-      loginEmail: "",
-      loginPassword: "",
+      loginEmail: "test@test.com",
+      loginPassword: "123456",
       remember: false,
       loginError: ""
     };
