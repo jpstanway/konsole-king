@@ -15,8 +15,8 @@ describe("Konsole King", () => {
 
     it("user can login", () => {
       cy.contains("Login").click();
-      cy.get("#loginEmail").type("test@test.com");
-      cy.get("#loginPassword").type("123456");
+      cy.get("#loginEmail").clear().type("test@test.com");
+      cy.get("#loginPassword").clear().type("123456");
       cy.contains("Secure Sign In").click({ force: true });
       cy.contains("Login successful!");
       cy.wait(5000);
