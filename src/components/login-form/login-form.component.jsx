@@ -18,17 +18,17 @@ class LoginForm extends Component {
       loginEmail: "test@test.com",
       loginPassword: "123456",
       remember: false,
-      loginError: ""
+      loginError: "",
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { name, value } = e.target;
 
     this.setState({ [name]: value });
   };
 
-  onSubmit = async e => {
+  onSubmit = async (e) => {
     e.preventDefault();
 
     const { loginEmail, loginPassword } = this.state;
@@ -89,7 +89,7 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  showNotification: PropTypes.func
+  showNotification: PropTypes.func,
 };
 
 export default connect(null, { showNotification })(LoginForm);

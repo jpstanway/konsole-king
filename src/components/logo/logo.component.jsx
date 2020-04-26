@@ -1,8 +1,11 @@
 import React from "react";
 
 import { LogoContainer, LogoImg } from "./logo.styles";
-import logo from "../../assets/kk-logo.png";
-import footerLogo from "../../assets/kk-logo-f.png";
+
+const logo =
+  "https://res.cloudinary.com/mtninja/image/upload/v1587932963/konsole-king/kk-logo.png";
+const footerLogo =
+  "https://res.cloudinary.com/mtninja/image/upload/v1587932963/konsole-king/kk-logo-f.png";
 
 const Logo = ({ footer }) => (
   <LogoContainer>

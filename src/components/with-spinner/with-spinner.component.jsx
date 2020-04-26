@@ -1,10 +1,11 @@
 import React from "react";
 
-import spinner from "../../assets/spinner.gif";
-
 import { SpinnerContainer, SpinnerImg } from "./with-spinner.styles";
 
-const WithSpinner = WrappedComponent => {
+const spinner =
+  "https://res.cloudinary.com/mtninja/image/upload/v1587932960/konsole-king/spinner.gif";
+
+const WithSpinner = (WrappedComponent) => {
   const Spinner = ({ isLoading, ...otherProps }) => {
     return isLoading ? (
       <SpinnerContainer>

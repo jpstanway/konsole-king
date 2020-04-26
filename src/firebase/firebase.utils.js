@@ -10,13 +10,13 @@ const firebaseConfig = {
   projectId: "konsole-king-db",
   storageBucket: "konsole-king-db.appspot.com",
   messagingSenderId: "811391365141",
-  appId: "1:811391365141:web:283c738ea44c2f054a9e1c"
+  appId: "1:811391365141:web:283c738ea44c2f054a9e1c",
 };
 
 /*************
  *** USERS ***
  *************/
-export const createUserProfileDocument = async userAuth => {
+export const createUserProfileDocument = async (userAuth) => {
   // if userAuth object empty, exit function
   if (!userAuth) return;
 
@@ -38,7 +38,7 @@ export const createUserProfileDocument = async userAuth => {
         email,
         wishlist,
         orderHistory,
-        createdAt
+        createdAt,
       });
     } catch (error) {
       console.log("error creating user", error.message);
@@ -61,7 +61,7 @@ export const updateUserWishlist = async (userId, wishlistItem) => {
     let wishlist = await userRef.get();
     wishlist = wishlist.data().wishlist;
     // first check if item already exists in wishlist
-    const itemExists = wishlist.find(item => item.id === wishlistItem.id);
+    const itemExists = wishlist.find((item) => item.id === wishlistItem.id);
 
     if (itemExists) {
       return false;
@@ -88,7 +88,7 @@ export const removeItemFromWishlist = async (userId, wishlistItem) => {
   wishlist = await wishlist.data().wishlist;
 
   // filter out item to be removed
-  wishlist = wishlist.filter(item => item.id !== wishlistItem.id);
+  wishlist = wishlist.filter((item) => item.id !== wishlistItem.id);
 
   userRef.update({ wishlist });
 };
@@ -102,7 +102,7 @@ export const addCategoryAndDocs = async (categoryKey, itemsToAdd) => {
   const categoryRef = firestore.collection(categoryKey);
 
   const batch = firestore.batch();
-  itemsToAdd.forEach(item => {
+  itemsToAdd.forEach((item) => {
     const newDocRef = categoryRef.doc(item.title);
     batch.set(newDocRef, item);
   });
@@ -121,13 +121,13 @@ export const updateItemReviews = async (category, itemObj, review) => {
     let items = await categoryData.data().items;
 
     // get index of item to be updated
-    let itemIndex = items.map(item => item.item).indexOf(itemObj.item);
+    let itemIndex = items.map((item) => item.item).indexOf(itemObj.item);
 
     // create new item object
     // and replace old object
     items[itemIndex] = {
       ...itemObj,
-      reviews: [...itemObj.reviews, review]
+      reviews: [...itemObj.reviews, review],
     };
 
     // save new items back to category in database
@@ -138,8 +138,8 @@ export const updateItemReviews = async (category, itemObj, review) => {
 };
 
 // convert categories snapshot to mappable object
-export const convertCategoriesSnapshotToMap = categories => {
-  const convertedCategory = categories.docs.map(doc => {
+export const convertCategoriesSnapshotToMap = (categories) => {
+  const convertedCategory = categories.docs.map((doc) => {
     const { title, categoryRank, items } = doc.data();
 
     return {
@@ -147,7 +147,7 @@ export const convertCategoriesSnapshotToMap = categories => {
       id: doc.id,
       title,
       categoryRank,
-      items
+      items,
     };
   });
 
@@ -174,7 +174,7 @@ export const createNewOrderDocument = async (order, total, currentUser) => {
       order,
       total,
       userId: currentUser.id,
-      createdAt
+      createdAt,
     });
 
     // update users order history
@@ -183,7 +183,7 @@ export const createNewOrderDocument = async (order, total, currentUser) => {
     orderHistory = orderHistory.data().orderHistory;
     orderHistory = [
       ...orderHistory,
-      { id: newOrder.id, order, total, createdAt }
+      { id: newOrder.id, order, total, createdAt },
     ];
     await userRef.update({ orderHistory });
   } catch (error) {

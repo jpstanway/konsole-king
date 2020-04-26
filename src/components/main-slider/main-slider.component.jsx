@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 
-import slideOne from "../../assets/slide_one.png";
-import slideTwo from "../../assets/slide_two.png";
-
 import {
   SliderContainer,
   Slide,
   SlideLink,
   SliderControl,
-  SliderBtn
+  SliderBtn,
 } from "./main-slider.styles";
 
 import CustomButton from "../custom-button/custom-button.component";
+
+const slideOne =
+  "https://res.cloudinary.com/mtninja/image/upload/v1587932962/konsole-king/slide_one.png";
+const slideTwo =
+  "https://res.cloudinary.com/mtninja/image/upload/v1587932962/konsole-king/slide_two.png";
 
 const MainSlider = () => {
   const [active, setActive] = useState(true);

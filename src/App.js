@@ -16,12 +16,12 @@ import Checkout from "./pages/checkout/checkout.component";
 import Footer from "./components/footer/footer.component";
 import WithSpinner from "./components/with-spinner/with-spinner.component";
 
-//import collections from "./scripts/collections";
+// import collections from "./scripts/collections";
 
 import {
   auth,
-  createUserProfileDocument
-  //addCategoryAndDocs
+  createUserProfileDocument,
+  // addCategoryAndDocs,
 } from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -34,7 +34,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
     };
   }
 
@@ -43,15 +43,15 @@ class App extends Component {
   componentDidMount() {
     const { setCurrentUser } = this.props;
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
+        userRef.onSnapshot((snapShot) => {
           // keep current user updated
           setCurrentUser({
             id: snapShot.id,
-            ...snapShot.data()
+            ...snapShot.data(),
           });
         });
       }
@@ -62,7 +62,7 @@ class App extends Component {
     });
 
     // add category + items
-    //addCategoryAndDocs(collections.title, collections.categories);
+    // addCategoryAndDocs(collections.title, collections.categories);
   }
 
   componentWillUnmount() {
@@ -80,7 +80,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route
             path="/user"
-            render={props =>
+            render={(props) =>
               currentUser ? (
                 <UserPageWithSpinner
                   isLoading={this.state.loading}
@@ -119,7 +119,7 @@ class App extends Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  cartTotal: selectCartTotal
+  cartTotal: selectCartTotal,
 });
 
 export default connect(mapStateToProps, { setCurrentUser })(App);
