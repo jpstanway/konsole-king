@@ -46,44 +46,46 @@ class LoginForm extends Component {
     const { loginEmail, loginPassword, remember, loginError } = this.state;
 
     return (
-      <AuthForm
-        onSubmit={this.onSubmit}
-        title="Sign In"
-        subText="Welcome back"
-        btnText="Secure Sign In"
-        btnId="loginSubmit"
-        error={loginError}
-      >
-        <FormInput
-          label="Email"
-          type="email"
-          name="loginEmail"
-          onChange={this.handleChange}
-          value={loginEmail}
-        />
-        <FormInput
-          label="Password"
-          type="password"
-          name="loginPassword"
-          onChange={this.handleChange}
-          value={loginPassword}
-        />
-        <LoginFormInputExtra>
-          <div>
-            <input
-              type="checkbox"
-              name="remember"
-              onChange={this.handleChange}
-              value={remember}
-            />
-            <label htmlFor="remember">Remember Me</label>
-          </div>
-          <a href="/">Forgot Password?</a>
-        </LoginFormInputExtra>
+      <div>
+        <AuthForm
+          onSubmit={this.onSubmit}
+          title="Sign In"
+          subText="Welcome back"
+          btnText="Secure Sign In"
+          btnId="loginSubmit"
+          error={loginError}
+        >
+          <FormInput
+            label="Email"
+            type="email"
+            name="loginEmail"
+            onChange={this.handleChange}
+            value={loginEmail}
+          />
+          <FormInput
+            label="Password"
+            type="password"
+            name="loginPassword"
+            onChange={this.handleChange}
+            value={loginPassword}
+          />
+          <LoginFormInputExtra>
+            <div>
+              <input
+                type="checkbox"
+                name="remember"
+                onChange={this.handleChange}
+                value={remember}
+              />
+              <label htmlFor="remember">Remember Me</label>
+            </div>
+            <a href="/">Forgot Password?</a>
+          </LoginFormInputExtra>
+        </AuthForm>
         <CustomButton onClick={signInWithGoogle} googleSignIn>
           Sign In With Google
         </CustomButton>
-      </AuthForm>
+      </div>
     );
   }
 }

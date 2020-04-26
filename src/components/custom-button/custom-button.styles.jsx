@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const getButtonStyles = props => {
+const getButtonStyles = (props) => {
   if (props.googleSignIn) {
     return googleSignInStyles;
   } else if (props.btnLink) {
@@ -23,6 +23,8 @@ const defaultButtonStyles = css`
 const googleSignInStyles = css`
   background-color: var(--color-secondary);
   color: var(--color-white);
+  transform: translateY(-4rem);
+  width: 100%;
 
   &:hover,
   &:active {
