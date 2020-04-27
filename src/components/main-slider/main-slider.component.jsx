@@ -14,6 +14,10 @@ const slideOne =
   "https://res.cloudinary.com/mtninja/image/upload/v1587932962/konsole-king/slide_one.png";
 const slideTwo =
   "https://res.cloudinary.com/mtninja/image/upload/v1587932962/konsole-king/slide_two.png";
+const slideOneMobile =
+  "https://res.cloudinary.com/mtninja/image/upload/v1588003746/konsole-king/slide-one-mobile-1.png";
+const slideTwoMobile =
+  "https://res.cloudinary.com/mtninja/image/upload/v1588004664/konsole-king/slide-two-mobile-1.png";
 
 const MainSlider = () => {
   const [active, setActive] = useState(true);
@@ -23,6 +27,7 @@ const MainSlider = () => {
       <Slide
         id="slide-one"
         slide={slideOne}
+        mobileSlide={slideOneMobile}
         className={active ? "slider-active show-slide-one" : "hide-slide-one"}
       >
         <SlideLink to="/browse/consoles">
@@ -32,6 +37,7 @@ const MainSlider = () => {
       <Slide
         id="slide-two"
         slide={slideTwo}
+        mobileSlide={slideTwoMobile}
         className={active ? "hide-slide-two" : "slider-active show-slide-two"}
       >
         <SlideLink to="/browse/vr">

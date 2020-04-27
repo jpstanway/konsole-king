@@ -5,6 +5,10 @@ import { device } from "../../scripts/media";
 export const CategoryImg = styled.img`
   width: 100%;
   transition: all 0.5s;
+
+  @media ${device.mobileL} {
+    visibility: hidden;
+  }
 `;
 
 export const CategoryOverlay = styled.div`
@@ -16,6 +20,7 @@ export const CategoryOverlay = styled.div`
 `;
 
 export const CategoryContainer = styled(Link)`
+  background: url(${(props) => props.mobileBanner});
   width: 100%;
   display: flex;
   align-items: center;
@@ -36,7 +41,8 @@ export const CategoryLogo = styled.img`
   left: 1rem;
 
   @media ${device.mobileL} {
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
   }
 `;
