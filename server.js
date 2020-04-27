@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
+const path = require("path");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
-const cors = require("cors");
 const stripe = require("stripe")("sk_test_qfpFcLmY2nnB6TYAhv2ScnHk00yRKMBges");
 
 // middleware
@@ -15,7 +16,7 @@ app.use(bodyParser.json());
 app.get("/secret/:total", async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: req.params.total,
-    currency: "cad"
+    currency: "cad",
   });
 
   res.json({ client_secret: paymentIntent.client_secret });
