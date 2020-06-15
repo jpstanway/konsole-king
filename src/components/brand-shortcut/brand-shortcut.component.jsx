@@ -14,7 +14,7 @@ const BrandShortcut = ({
   <CategoryContainer
     className="brand-shortcut"
     to={`/browse/consoles?allConsoles=true&brand=${company}`}
-    mobileBanner={mobile_banner}
+    mobilebanner={mobile_banner}
   >
     <CategoryImg src={banner} alt={platform} />
     <CategoryLogo src={logo} alt={platform} />

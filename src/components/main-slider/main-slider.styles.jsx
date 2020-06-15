@@ -32,6 +32,7 @@ export const SliderBtn = styled.span`
 `;
 
 export const SliderContainer = styled.div`
+  border-radius: 2px;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -58,14 +59,43 @@ export const Slide = styled.div`
   }
 `;
 
-export const SlideLink = styled(Link)`
-  position: absolute;
-  bottom: 145px;
-  left: 100px;
+export const SlideContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+  height: 100%;
+  width: 50%;
 
   @media ${device.laptop} {
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+    justify-content: space-between;
+    padding-bottom: 10rem;
+    width: 100%;
   }
+`;
+
+export const SlideText = styled.div`
+  color: var(--color-grey-dark);
+  text-align: center;
+
+  h2 {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    color: var(--color-grey);
+  }
+`;
+
+export const SlideLink = styled(Link)`
+  //
 `;

@@ -20,7 +20,7 @@ export const CategoryOverlay = styled.div`
 `;
 
 export const CategoryContainer = styled(Link)`
-  background: url(${(props) => props.mobileBanner});
+  background: url(${(props) => props.mobilebanner});
   width: 100%;
   display: flex;
   align-items: center;
