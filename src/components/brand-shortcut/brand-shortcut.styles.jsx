@@ -12,8 +12,9 @@ export const CategoryImg = styled.img`
 `;
 
 export const CategoryOverlay = styled.div`
+  height: 100%;
   width: 100%;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   position: absolute;
   top: 0;
   left: 0;
