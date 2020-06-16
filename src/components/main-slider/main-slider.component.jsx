@@ -1,25 +1,18 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
   SliderContainer,
+  SliderOverlay,
   Slide,
   SlideContent,
   SlideText,
-  SlideLink,
   SliderControl,
   SliderBtn,
 } from "./main-slider.styles";
 
 import CustomButton from "../custom-button/custom-button.component";
-
-const slideOne =
-  "https://res.cloudinary.com/mtninja/image/upload/v1592189463/konsole-king/slide_1.png";
-const slideTwo =
-  "https://res.cloudinary.com/mtninja/image/upload/v1592191160/konsole-king/slide_2.png";
-const slideOneMobile =
-  "https://res.cloudinary.com/mtninja/image/upload/v1592191945/konsole-king/slide_1_mobile.png";
-const slideTwoMobile =
-  "https://res.cloudinary.com/mtninja/image/upload/v1592192484/konsole-king/slide_2_mobile.png";
+import slides from "../../scripts/slides";
 
 const MainSlider = () => {
   const [active, setActive] = useState(true);
@@ -27,9 +20,9 @@ const MainSlider = () => {
   return (
     <SliderContainer>
       <Slide
-        id="slide-one"
-        slide={slideOne}
-        mobileSlide={slideOneMobile}
+        id={slides[0].id}
+        slide={slides[0].img}
+        mobileSlide={slides[0].mobileImg}
         className={active ? "slider-active show-slide-one" : "hide-slide-one"}
       >
         <SlideContent>
@@ -41,15 +34,15 @@ const MainSlider = () => {
             <p>On selected consoles &amp; gaming</p>
             <p>laptops</p>
           </SlideText>
-          <SlideLink to="/browse/consoles" style={{ left: "10px" }}>
+          <Link to="/browse/consoles" style={{ left: "10px" }}>
             <CustomButton>Shop Now</CustomButton>
-          </SlideLink>
+          </Link>
         </SlideContent>
       </Slide>
       <Slide
-        id="slide-two"
-        slide={slideTwo}
-        mobileSlide={slideTwoMobile}
+        id={slides[1].id}
+        slide={slides[1].img}
+        mobileSlide={slides[1].mobileImg}
         className={active ? "hide-slide-two" : "slider-active show-slide-two"}
       >
         <SlideContent>
@@ -60,9 +53,9 @@ const MainSlider = () => {
             <h3>Unbeatable savings on all VR headsets</h3>
             <p>Sale ends December 27</p>
           </SlideText>
-          <SlideLink to="/browse/vr">
+          <Link to="/browse/vr">
             <CustomButton>Shop Now</CustomButton>
-          </SlideLink>
+          </Link>
         </SlideContent>
       </Slide>
       <SliderControl>
@@ -77,6 +70,7 @@ const MainSlider = () => {
           className={active ? "" : "slider-active"}
         />
       </SliderControl>
+      <SliderOverlay />
     </SliderContainer>
   );
 };

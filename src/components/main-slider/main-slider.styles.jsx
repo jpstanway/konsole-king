@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { device } from "../../scripts/media";
 
 export const SliderControl = styled.div`
@@ -40,6 +39,19 @@ export const SliderContainer = styled.div`
   &:hover ${SliderControl} {
     top: 90%;
   }
+`;
+
+export const SliderOverlay = styled.div`
+  background: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1)
+  );
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export const Slide = styled.div`
@@ -94,8 +106,4 @@ export const SlideText = styled.div`
   p {
     color: var(--color-grey);
   }
-`;
-
-export const SlideLink = styled(Link)`
-  //
 `;
